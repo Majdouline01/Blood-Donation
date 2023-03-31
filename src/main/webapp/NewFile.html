@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+	<title>Health Check Form</title>
+	<style>
+		.error {
+			color: red;
+			font-weight: bold;
+			margin-top: 10px;
+		}
+	</style>
+	<script>
+		function validateHealthCheck() {
+			// Get the values of the health check inputs
+			var age = document.getElementById("age").value;
+			var bloodPressure = document.getElementById("blood-pressure").value;
+			var cholesterol = document.getElementById("cholesterol").value;
+			
+			// Perform validation on the health check inputs
+			if (age < 18 || age > 60) {
+				document.getElementById("age-error").innerHTML = "You must be between 18 and 60 years old to use this service.";
+				return false;
+			}
+			if (bloodPressure > 140 || bloodPressure < 90) {
+				document.getElementById("blood-pressure-error").innerHTML = "Your blood pressure must be between 90 and 140.";
+				return false;
+			}
+			if (cholesterol > 200 || cholesterol < 120) {
+				document.getElementById("cholesterol-error").innerHTML = "Your cholesterol level must be between 120 and 200.";
+				return false;
+			}
+			
+			// If all validations pass, return true to allow the user to complete the test
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<h1>Health Check Form</h1>
+	<form action="submit.php" onsubmit="return validateHealthCheck();">
+		<label for="age">Age:</label>
+		<input type="number" id="age" name="age" required><br>
+		<span id="age-error" class="error"></span><br>
+		
+		<label for="blood-pressure">Blood Pressure:</label>
+		<input type="number" id="blood-pressure" name="blood-pressure" required><br>
+		<span id="blood-pressure-error" class="error"></span><br>
+		
+		<label for="cholesterol">Cholesterol:</label>
+		<input type="number" id="cholesterol" name="cholesterol" required><br>
+		<span id="cholesterol-error" class="error"></span><br>
+		
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>
+
