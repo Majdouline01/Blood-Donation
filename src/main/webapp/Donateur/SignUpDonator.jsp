@@ -5,8 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Page d'inscription pour donateur</title>
+<link rel="stylesheet" type="text/css" href="../css.css">
 </head>
 <body>
+<nav>
+		<ul>
+			<li><a href="index.jsp">Home</a></li>
+			<li><a href="Main/about.jsp">About</a></li>
+			<li class="dropdown"><a href="#">Users</a>
+				<div class="dropdown-content">
+					<a href="Donateur/signInDonateur.jsp">Donateur</a> 
+					<a href="Receveur/SignInReceveur.jsp">Receveur</a> 
+					<a href="Admin/signInAdmin.jsp">Admin</a>
+				</div></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
 <h1> Bonjour cher donateur, veuillez entrer les informations suivantes </h1>
 	<form action="s'inscrire" method="post">
 	<label for="text"> votre nom:</label>

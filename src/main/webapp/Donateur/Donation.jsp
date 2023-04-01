@@ -7,15 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Demande de don</title>
-<link rel="stylesheet" type="text/css" href="css.css">
+<link rel="stylesheet" type="text/css" href="../css.css">
 </head>
 <body>
 	<nav>
 		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Services</a></li>
-			<li><a href="#">Logout</a></li>
+			<li><a href="profilDonateur.jsp">Profil</a></li>
+			<li><a href="#">Mes Demandes</a></li>
+			<li><a href="#">Faire Demande</a></li>
+			<li><a href="#">Se déconnecter </a></li>
 		</ul>
 	</nav>
 	<c:set var="donateur" value="${sessionScope.donateur}" />
