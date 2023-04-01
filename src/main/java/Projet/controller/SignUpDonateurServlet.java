@@ -11,11 +11,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Projet.DAO.DonateurDao;
 import Projet.model.Donateur;
 
-@WebServlet("/s'inscrire")
+@WebServlet("/Donateur/s'inscrire")
 public class SignUpDonateurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -52,7 +53,8 @@ public class SignUpDonateurServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	    res.sendRedirect("signin.jsp");
+	  
+	    res.sendRedirect("signInDonateur.jsp");
 	}
 	
 

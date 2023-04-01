@@ -19,7 +19,7 @@ import Projet.DAO.DonationDao;
 import Projet.model.Demandes;
 
 
-@WebServlet("/donate")
+@WebServlet("/Donateur/donate")
 public class DonationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

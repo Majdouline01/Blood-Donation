@@ -13,7 +13,7 @@ import Projet.DAO.ReceveurDao;
 import Projet.model.Donateur;
 import Projet.model.Receveur;
 
-@WebServlet("/Connexion")
+@WebServlet("/Receveur/Connexion")
 public class SigninReceiverServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   

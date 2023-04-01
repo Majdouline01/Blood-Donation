@@ -14,7 +14,7 @@ import Projet.DAO.DonateurDao;
 import Projet.model.Donateur;
 
 
-@WebServlet("/connexion")
+@WebServlet("/Donateur/connexion")
 public class SigninDonatorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

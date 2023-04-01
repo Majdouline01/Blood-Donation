@@ -16,7 +16,7 @@ import Projet.DAO.ReceveurDao;
 import Projet.model.Receveur;
 
 
-@WebServlet("/S'inscrire")
+@WebServlet("/Receveur/S'inscrire")
 public class SignUpReceiverServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
@@ -54,7 +54,7 @@ public class SignUpReceiverServlet extends HttpServlet {
 	    			} catch (SQLException e) {
 	    				e.printStackTrace();
 	    			}
-	    		    res.sendRedirect("SigninR.jsp");
+	    		    res.sendRedirect("SignInReceveur.jsp");
 	}
 
 }

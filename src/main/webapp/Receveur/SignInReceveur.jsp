@@ -8,14 +8,16 @@
 </head>
 <body>
 	<h1>Maintenant vous pouvez connectez à votre compte</h1>
-	<form action="connexion" method="post">
+	<form action="Connexion" method="post">
 	<label for="email">votre email:</label>
 	<input type="email" id="email" name="email" required><br>
 	<br>
 	<label for="password">votre mot de passe:</label>
 	<input type="password" id="motDePasse" name="motDePasse" required><br>
 	<br>
-	<input type="submit" value="connexion">
+	<input type="submit" value="Connexion">
 	</form>
+	<h2>Vous n'avez pas de compte, inscriez-vous!</h2>
+	<a href="SignUpReceiver.jsp">s'inscrire</a>
 </body>
 </html>
