@@ -18,6 +18,6 @@
 	<input type="submit" value="connexion">
 	</form><br>
 	<h2>Vous n'avez pas de compte, inscriez vous!</h2>
-	<a href="SignUpDonator.jsp">s'inscrire</a>
+	<a href="test.jsp">s'inscrire</a>
 </body>
 </html>
