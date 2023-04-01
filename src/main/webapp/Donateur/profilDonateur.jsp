@@ -33,7 +33,7 @@ th {
 			<li><a href="#">Mes Demandes</a></li>
 			<li><a href="#">Faire Demande</a></li>
 			<li>
-				<form action="logout" method="post">
+				<form action="test" method="post">
 					<a><button type="submit">Se déconnecter</button></a>
 				</form>
 			</li>
