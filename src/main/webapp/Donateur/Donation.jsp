@@ -15,7 +15,10 @@
 			<li><a href="profilDonateur.jsp">Profil</a></li>
 			<li><a href="#">Mes Demandes</a></li>
 			<li><a href="#">Faire Demande</a></li>
-			<li><a href="#">Se déconnecter </a></li>
+			<li>
+			<form action="test" method="post">
+					<a><button type="submit">Se déconnecter</button></a>
+				</form></li>
 		</ul>
 	</nav>
 	<c:set var="donateur" value="${sessionScope.donateur}" />
