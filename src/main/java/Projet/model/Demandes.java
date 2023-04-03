@@ -5,7 +5,9 @@ import java.sql.Date;
 public class Demandes {
 	String cIN;
 	Date dateDemande;
-	
+	public Demandes() {
+		
+	}
 	public Demandes(String cIN, Date dateDemande) {
 		super();
 		this.cIN = cIN;

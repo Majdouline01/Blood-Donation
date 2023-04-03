@@ -24,7 +24,7 @@
 	<nav>
 		<ul>
 			<li><a href="profilDonateur.jsp">Profil</a></li>
-			<li><a href="#">Mes Demandes</a></li>
+			<li><a href="mesDemandes.jsp">Mes Demandes</a></li>
 			<li><a href="#">Faire Demande</a></li>
 			<li>
 				<form action="test" method="post">

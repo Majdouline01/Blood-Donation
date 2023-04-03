@@ -39,7 +39,7 @@ th {
 	<nav>
 		<ul>
 			<li><a href="#">Profil</a></li>
-			<li><a href="#">Mes Demandes</a></li>
+			<li><a href="mesDemandes.jsp">Mes Demandes</a></li>
 			<li><a href="Donation.jsp">Faire Demande</a></li>
 			<li>
 				<form action="test" method="post">

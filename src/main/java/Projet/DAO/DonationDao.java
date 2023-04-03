@@ -7,8 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import Projet.model.Demandes;
+import Projet.model.Donateur;
 
 public class DonationDao {
 
@@ -42,5 +44,28 @@ public class DonationDao {
         }
         con.close();
         return false;
+    }
+    
+    public ArrayList<Demandes> getDemandes(String cin) {
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Demandes> list = new ArrayList<Demandes>();
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
+			stmt = conn.prepareStatement("SELECT * FROM demandes WHERE CIN = ?");
+			stmt.setString(1, cin);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Demandes demande = new Demandes();
+				demande.setCIN(rs.getString("CIN"));
+				demande.setDateDemande(java.sql.Date.valueOf(rs.getString("dateDemande")));
+				list.add(demande);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+
     }
 }
