@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>sign in page</title>
-<link rel="stylesheet" type="text/css" href="../page.css">
+<link rel="stylesheet" type="text/css" href="../test1.css">
 </head>
 <body>
 	<nav>
@@ -21,7 +21,7 @@
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
-	<h1> Bonour Cher Donateur, vous pouvez connéctez à votre compte</h1>
+	<h1> Bonjour Cher Donateur, vous pouvez connéctez à votre compte</h1>
 	<form action="connexion" method="post">
 	<label for="email">votre email:</label>
 	<input type="email" id="email" name="email" required placeholder="Email" autofocus><br>

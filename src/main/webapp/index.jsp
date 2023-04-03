@@ -5,22 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="page.css">
+<link rel="stylesheet" type="text/css" href="css.css">
+
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-	<nav>
-		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="Main/about.jsp">About</a></li>
-			<li class="dropdown"><a href="#">Users</a>
-				<div class="dropdown-content">
-					<a href="Donateur/signInDonateur.jsp">Donateur</a> 
-					<a href="Receveur/SignInReceveur.jsp">Receveur</a> 
-					<a href="Admin/signInAdmin.jsp">Admin</a>
-				</div></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</nav>
+<nav>
+	<div>
+		<a href="#" class="logo"><box-icon name='donate-blood'></box-icon><span>Donate</span></a>
+	</div>
 
+	<ul>
+		<li><a href="index.jsp">Accueil</a></li>
+		<li><a href="Main/about.jsp">à propos</a></li>
+		<li class="dropdown"><a href="#">Utilisateurs</a>
+			<div class="dropdown-content">
+				<a href="Donateur/signInDonateur.jsp">Donateur</a> 
+				<a href="Receveur/SignInReceveur.jsp">Receveur</a> 
+				<a href="Admin/signInAdmin.jsp">Admin</a>
+			</div>
+			</li>
+	</ul>
+	</nav>
 </body>
 </html>
