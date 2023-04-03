@@ -25,16 +25,10 @@ public class LogoutDonateurServlet extends HttpServlet {
 		try {
 		    HttpSession session = req.getSession(false);
 		    if (session != null) {
-		    	Cookie[] cookies = req.getCookies();
-		    	if (cookies != null) {
-		    	    for (Cookie cookie : cookies) {
-		    	        cookie.setValue("");
-		    	        cookie.setPath("/");
-		    	        cookie.setMaxAge(0);
-		    	        res.addCookie(cookie);
-		    	    }
-		    	}
 		        session.invalidate();
+		        res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		        res.setHeader("Pragma", "no-cache");
+		        res.setHeader("Expires", "0");
 		    }
 		    res.sendRedirect("signInDonateur.jsp");
 		} catch (Exception e) {

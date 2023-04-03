@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import Projet.DAO.DonationDao;
 import Projet.model.Demandes;
 
@@ -27,6 +28,18 @@ public class DonationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	   //retrieve data from request
 		String dateStr = req.getParameter("date");
+		//System.out.print(dateStr);
+		
+		//convert date from 04/20/2023 to 2023-04-19 FORMAT------
+		String[] str = dateStr.split("/");
+		dateStr = "";
+		dateStr = str[2] + "-" + str[0] + "-" + str[1];
+		//System.out.print(dateStr);
+		//-------------------------------------------------------
+		
+		
+		
+		
 	    Date date = Date.valueOf(dateStr);
        //initialize 
 	    boolean isAvailable = false;
@@ -75,11 +88,19 @@ public class DonationServlet extends HttpServlet {
 	            e.printStackTrace();
 	        }
 
-	        res.sendRedirect("Success.jsp");
+	        //res.sendRedirect("Success.jsp");
+	        System.out.print("hello");
+	        res.setContentType("text/plain");
+		    res.setCharacterEncoding("UTF-8");
+		    res.getWriter().write("success");
+		    System.out.print("hello2");
 	    } else {
 	       
 	        res.sendRedirect("NotAvailable.jsp");
 	    }
+	    
+	    
+	    
 	}
 }
 

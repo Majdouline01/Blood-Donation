@@ -30,7 +30,7 @@ public class SigninDonatorServlet extends HttpServlet {
 		     HttpSession session = req.getSession();
 		     session.setAttribute("donateur", donateur);
 		     session.setAttribute("email", email);
-		     res.sendRedirect("donateurHomePage.jsp");
+		     res.sendRedirect("profilDonateur.jsp");
 		 } else {
 		     res.getWriter().println("Invalid email or password. Please try again.");
 		 }
