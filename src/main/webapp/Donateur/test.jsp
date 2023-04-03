@@ -4,50 +4,9 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Quiz</title>
-    <link rel="stylesheet" type="text/css" href="../css.css">
-    <style>
-      #question-container {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-      }
-      #error-container {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-      }
-      #result {
-        width: 50%;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      #options-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 20px;
-      }
-
-      .option {
-        margin: 10px;
-        padding: 10px 20px;
-        border: none;
-        background-color: #f2f2f2;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease-in-out;
-      }
-
-      .option:hover {
-        background-color: #d9d9d9;
-        transform: translateY(-2px);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-      }
-    </style>
+    <title>Test de pré-donation</title>
+    <link rel="stylesheet" type="text/css" href="../test.css">
+    
   </head>
 
   <body>
@@ -69,7 +28,7 @@ pageEncoding="UTF-8"%>
       <div id="options-container"></div>
     </div>
     <div id="error-container">
-      <p id="error-message" style="display: none; color: red">
+      <p id="error-message" style="display: none;">
         Désolé vous ne pouvez pas donner votre sang 
       </p>
       <button id="return-button" style="display: none" onclick="returnFunction();">retour</button>
@@ -183,7 +142,7 @@ pageEncoding="UTF-8"%>
           currentQuestionIndex === questions.length
         ) {
           questionContainer.style.display = "none";
-          alert("Vous aavez compléter le test avec succés!");
+          alert("Vous avez compléter le test avec succés!");
           returnButton.style.display = "none";
 
           //create a link for the signup page

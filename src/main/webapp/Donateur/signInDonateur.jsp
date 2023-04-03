@@ -21,13 +21,13 @@
 			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
-	<h1>Maintenant vous pouvez connectez à votre compte</h1>
+	<h1> Bonour Cher Donateur, vous pouvez connéctez à votre compte</h1>
 	<form action="connexion" method="post">
 	<label for="email">votre email:</label>
-	<input type="email" id="email" name="email" required><br>
+	<input type="email" id="email" name="email" required placeholder="Email" autofocus><br>
 	<br>
 	<label for="password">votre mot de passe:</label>
-	<input type="password" id="motDePasse" name="motDePasse" required><br>
+	<input type="password" id="motDePasse" name="motDePasse" required placeholder="Mot de passe"><br>
 	<br>
 	<input type="submit" value="connexion">
 	</form><br>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Page d'inscription pour donateur</title>
-<link rel="stylesheet" type="text/css" href="../css.css">
+<link rel="stylesheet" type="text/css" href="../SignUp.css">
 </head>
 <body>
 <nav>
