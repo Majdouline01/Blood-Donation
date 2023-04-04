@@ -89,11 +89,9 @@ public class DonationServlet extends HttpServlet {
 	        }
 
 	        //res.sendRedirect("Success.jsp");
-	        System.out.print("hello");
 	        res.setContentType("text/plain");
 		    res.setCharacterEncoding("UTF-8");
 		    res.getWriter().write("success");
-		    System.out.print("hello2");
 	    } else {
 	       
 	        res.sendRedirect("NotAvailable.jsp");
