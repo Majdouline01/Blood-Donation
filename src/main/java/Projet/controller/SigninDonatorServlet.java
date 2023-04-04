@@ -30,9 +30,10 @@ public class SigninDonatorServlet extends HttpServlet {
 		 DonateurDao donatorDao= new DonateurDao();
 		 DonationDao donationDao = new DonationDao();
 		 Donateur donateur = donatorDao.CheckDonateur(email, motDePasse);
+		 
 		 ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
 		 listDemandes = donationDao.getDemandes(donateur.getcIN());
-		 
+		 //String test = "test";
 		 
 		 if (donateur != null) {
 		     HttpSession session = req.getSession();
@@ -41,7 +42,7 @@ public class SigninDonatorServlet extends HttpServlet {
 		     session.setAttribute("listDemandes", listDemandes);
 		     res.sendRedirect("profilDonateur.jsp");
 		     
-		     System.out.print(listDemandes.get(0).getCIN());
+		     //System.out.print(listDemandes.get(0).getCIN());
 		 } else {
 		     res.getWriter().println("Invalid email or password. Please try again.");
 		 }

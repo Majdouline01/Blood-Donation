@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.List"%>
-<%@ page import="Projet.model.Demandes"%>
+	
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Projet.model.Demandes" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +26,11 @@
 	<c:set var="listDemandes" value="${sessionScope.listDemandes}" />
 
 	Welcome, ${donateur.prenomDonateur}! ${listDemandes[0].getCIN()}
-	${listDemandes[0].getDateDemande()}
 
+
+	<%
+	ArrayList<Demandes> myList = (ArrayList<Demandes>) session.getAttribute("listDemandes");
+	%>
 	<table>
 		<thead>
 			<tr>
@@ -36,20 +40,15 @@
 		</thead>
 		<tbody>
 			<%
-			List<Demandes> demandesList = (List<Demandes>) request.getAttribute("listDemandes");
-			if (demandesList != null) {
-				for (int i = 0; i < demandesList.size(); i++) {
-					Demandes demande = demandesList.get(i);
+			for (Demandes myObject : myList) {
 			%>
 			<tr>
-				<td>${demande.getCIN()}</td>
-				<td>${demande.getDateDemande()}</td>
+				<td><%=myObject.getCIN()%></td>
+				<td><%=myObject.getDateDemande()%></td>
 			</tr>
 			<%
 			}
-			}
 			%>
-
 		</tbody>
 	</table>
 

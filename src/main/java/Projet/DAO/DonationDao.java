@@ -60,6 +60,7 @@ public class DonationDao {
 				Demandes demande = new Demandes();
 				demande.setCIN(rs.getString("CIN"));
 				demande.setDateDemande(java.sql.Date.valueOf(rs.getString("dateDemande")));
+				
 				list.add(demande);
 			}
 		} catch (SQLException e) {
