@@ -3,12 +3,13 @@
 	
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Projet.model.Demandes" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Mes demandes</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -58,7 +59,7 @@
 				<td><%=myObject.getDateDemande()%></td>
 				<td>
 					<% if (isValidated == 0 ) { %>
-                    <span class="badge bg-warning">En Attente de Don</span>
+                    <span class="badge bg-warning">En cours de traitement</span>
                 <% } else { %>
                     <span class="badge bg-success">Succes</span>
                 <% } %>

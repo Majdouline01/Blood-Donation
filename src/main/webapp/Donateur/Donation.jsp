@@ -34,7 +34,7 @@
 		</ul>
 	</nav>
 	<c:set var="donateur" value="${sessionScope.donateur}" />
-	Welcome, ${donateur.prenomDonateur}!
+	Bienvenue, ${donateur.prenomDonateur}!
 	<h1>Demande de don</h1>
 	<form id="myForm" action="donate" method="post">
 		<label for="date">Selectionner une date pour donner votre

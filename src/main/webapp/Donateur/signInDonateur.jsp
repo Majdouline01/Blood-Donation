@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>sign in page</title>
-<link rel="stylesheet" type="text/css" href="../test1.css">
+<link rel="stylesheet" type="text/css" href="../css.css">
 </head>
 <body>
 	<nav>
