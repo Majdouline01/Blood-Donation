@@ -42,11 +42,9 @@ public class SignUpReceiverServlet extends HttpServlet {
 				String motDePasse = req.getParameter("motDePasse");
 				String email = req.getParameter("email");
 				String groupage = req.getParameter("groupage");
-				String quantiteSang = req.getParameter("quantiteSang");
-				float parsedquantiteSang = Float.parseFloat(quantiteSang);
 				// Create a new receiver object with the form data
 				Receveur newReceveur = new  Receveur(cIN, nomReceveur, prenomReceveur, sexe, ville, groupage,
-			    		sqlDate, numTele, email, motDePasse,parsedquantiteSang);
+			    		sqlDate, numTele, email, motDePasse);
 	    		 // Create a ReceveurDao instance and use its insertreceveur method to save the new receiver to the database
 	    		ReceveurDao receveurDao= new ReceveurDao();
 	    		    try {

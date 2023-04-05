@@ -14,7 +14,7 @@ public class ReceveurDao {
 	private String jdbcPassword="";
 	
 
-  private static final String INSERT_Receveur_SQL = "INSERT INTO receveur (CIN, NomReceveur, PrenomReceveur, sexe, ville, numTele, DateDeNaissance, QuantiteSang, email, Groupage, motDePasse) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+  private static final String INSERT_Receveur_SQL = "INSERT INTO receveur (CIN, NomReceveur, PrenomReceveur, sexe, ville, numTele, DateDeNaissance, email, Groupage, motDePasse) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
   
   public ReceveurDao() {
 	}
@@ -42,10 +42,9 @@ public class ReceveurDao {
           preparedStatement.setString(5, receveur.getVille());
           preparedStatement.setString(6, receveur.getNumTele());
           preparedStatement.setDate(7, (Date) receveur.getDateDeNaissance());
-          preparedStatement.setFloat(8, receveur.getQuantiteSang());
-          preparedStatement.setString(9, receveur.getEmail());
-          preparedStatement.setString(10, receveur.getGroupage());
-          preparedStatement.setString(11, receveur.getMotDePasse());
+          preparedStatement.setString(8, receveur.getEmail());
+          preparedStatement.setString(9, receveur.getGroupage());
+          preparedStatement.setString(10, receveur.getMotDePasse());
           preparedStatement.executeUpdate();
       } catch (SQLException e) {
           e.printStackTrace();
@@ -73,7 +72,6 @@ public class ReceveurDao {
         	  receveur.setSexe(rs.getString("Sexe"));
         	  receveur.setNumTele(rs.getString("NumTele"));
         	  receveur.setDateDeNaissance(rs.getDate("DateDeNaissance"));
-        	  receveur.setQuantiteSang(rs.getFloat("QuantiteSang"));
         	  receveur.setEmail(rs.getString("Email"));
         	  receveur.setGroupage(rs.getString("Groupage"));
         	  receveur.setMotDePasse(rs.getString("MotDePasse"));

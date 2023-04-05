@@ -22,9 +22,9 @@
     crossorigin="anonymous"></script>
 	<nav>
 		<ul>
-			<li><a href="#">Profil</a></li>
-			<li><a href="mesDemandes.jsp">Mes Demandes</a></li>
-			<li><a href="Donation.jsp">Faire Demande</a></li>
+			<li><a href="ReceiverHomePage.jsp">Profil</a></li>
+			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
+			<li><a href="ReceiverRequest.jsp">Faire Demande</a></li>
 			<li>
 				<form action="logout" method="post">
 					<a><button type="submit">Se déconnecter</button></a>

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import Projet.model.Demandes;
 import Projet.model.Donateur;
+import Projet.model.ReceveurDemande;
 
 public class DonationDao {
 
@@ -67,6 +68,30 @@ public class DonationDao {
 			e.printStackTrace();
 		}
 		return list;
-
     }
+    
+    public ArrayList<ReceveurDemande> getDemandesReceveur(String cin) {
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<ReceveurDemande> list = new ArrayList<ReceveurDemande>();
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
+			stmt = conn.prepareStatement("SELECT * FROM receveurdemande WHERE CIN = ?");
+			stmt.setString(1, cin);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				ReceveurDemande demande = new ReceveurDemande();
+				demande.setcIN(rs.getString("CIN"));
+				demande.setDate(java.sql.Date.valueOf(rs.getString("Date")));
+				demande.setHopital(rs.getString("Hopital"));
+				demande.setMaladie(rs.getString("maladie"));
+				demande.setStatut(rs.getString("statut"));
+				list.add(demande);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+    } 
 }

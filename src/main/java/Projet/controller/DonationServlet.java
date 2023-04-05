@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -92,6 +93,15 @@ public class DonationServlet extends HttpServlet {
 	        res.setContentType("text/plain");
 		    res.setCharacterEncoding("UTF-8");
 		    res.getWriter().write("success");
+		    
+		    
+		    //to refresh the demandes list
+		    DonationDao donationDao = new DonationDao();
+		    ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
+			listDemandes = donationDao.getDemandes(cIN);
+			session.setAttribute("listDemandes", listDemandes);
+			 
+			 
 	    } else {
 	       
 	        res.sendRedirect("NotAvailable.jsp");

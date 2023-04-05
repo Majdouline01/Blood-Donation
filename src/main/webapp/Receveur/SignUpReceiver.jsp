@@ -46,9 +46,6 @@
 	<label for="password">votre mot de passe:</label>
 	<input type="password" id="motDePasse" name="motDePasse" required><br>
 	<br>
-	<label for="number">Quantité de sang désiré:</label>
-	<input type="number" id="quantiteSang" name="quantiteSang" required><br>
-	<br>
 	<label for="email">votre email:</label>
 	<input type="email" id="email" name="email" required><br>
 	<br>

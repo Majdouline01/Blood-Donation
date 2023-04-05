@@ -46,6 +46,11 @@ public class SignUpDonateurServlet extends HttpServlet {
 		// Create a new donator object with the form data
 	    Donateur newDonateur = new  Donateur(cIN, nomDonateur, prenomDonateur, sexe, ville, groupage,
 	    		sqlDate, numTele, email, motDePasse);
+	    
+	    //--------------------------------
+	    //--------------------------------
+	    // call the method to fill all the questions
+	    //--------------------------------
 	 // Create a DonatorDao instance and use its insertdonator method to save the new donator to the database
 	    DonateurDao donatorDao= new DonateurDao();
 	    try {

@@ -34,7 +34,7 @@
 	<c:set var="donateur" value="${sessionScope.donateur}" />
 	<c:set var="listDemandes" value="${sessionScope.listDemandes}" />
 
-	Welcome, ${donateur.prenomDonateur}! ${listDemandes[0].getCIN()}
+	Welcome, ${donateur.prenomDonateur}! 
 
 
 	<%
@@ -61,7 +61,7 @@
 					<% if (isValidated == 0 ) { %>
                     <span class="badge bg-warning">En cours de traitement</span>
                 <% } else { %>
-                    <span class="badge bg-success">Succes</span>
+                    <span class="badge bg-success">Success</span>
                 <% } %>
 				</td>
 				

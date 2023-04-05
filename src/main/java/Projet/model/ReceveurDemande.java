@@ -12,15 +12,16 @@ public class ReceveurDemande {
 	float quantiteSang;
 	byte[] ordonnance;
 	String statut;
-	public ReceveurDemande(String cIN, String hopital, Date date, String maladie, float quantiteSang, byte[] ordonnance,
+	public ReceveurDemande() {
+		
+	}
+	public ReceveurDemande(String cIN, String hopital, Date date, String maladie, float quantiteSang,
 			String statut) {
-		super();
 		this.cIN = cIN;
 		this.hopital = hopital;
 		this.date = date;
 		this.maladie = maladie;
 		this.quantiteSang = quantiteSang;
-		this.ordonnance = ordonnance;
 		this.statut = "en cours de traitement";
 	}
 	public String getcIN() {
@@ -62,7 +63,9 @@ public class ReceveurDemande {
 	public String getStatut() {
 		return statut;
 	}
-	
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
 	
 	
 }

@@ -13,9 +13,8 @@ public class Receveur {
 	String numTele;
 	String email;
 	String motDePasse;
-	float quantiteSang;
 	public Receveur (String cIN, String nomReceveur, String prenomReceveur, String sexe, String ville, String groupage,
-			Date dateDeNaissance, String numTele, String email, String motDePasse, float quantiteSang) {
+			Date dateDeNaissance, String numTele, String email, String motDePasse) {
 		super();
 		this.cIN = cIN;
 		this.nomReceveur = nomReceveur;
@@ -27,7 +26,6 @@ public class Receveur {
 		this.numTele = numTele;
 		this.email = email;
 		this.motDePasse = motDePasse;
-		this.quantiteSang = quantiteSang;
 	}
 	public Receveur() {
 	}
@@ -91,11 +89,6 @@ public class Receveur {
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
-	public float getQuantiteSang() {
-		return quantiteSang;
-	}
-	public void setQuantiteSang(float quantiteSang) {
-		this.quantiteSang = quantiteSang;
-	}
+
 	
 }
