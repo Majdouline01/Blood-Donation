@@ -22,13 +22,13 @@
 		</ul>
 	</nav>
 	<form action="loginAdmin" method="post">
-	<label for="AdminName">Enter your AdminName:</label>
-	<input type="text" id='AdminName' name='email' required><br>
+	<label for="AdminName">Entrer votre email:</label>
+	<input type="text" id='email' name='email' required><br>
 	<br>
-	<label for="password">Enter your Password:</label>
-	<input type="password" id="password" name="motDePasse" required><br>
+	<label for="password">Entrer votre mot de passe:</label>
+	<input type="password" id="motDePasse" name="motDePasse" required><br>
 	<br>
-	<input type="submit" value="Login">
+	<input type="submit" value="connexion">
 	</form>
 </body>
 </html>

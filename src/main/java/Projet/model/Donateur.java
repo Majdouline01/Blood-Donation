@@ -13,6 +13,41 @@ public class Donateur {
 	String numTele;
 	String email;
 	String motDePasse;
+	String dernierDonDate;
+	String vIHsida;
+	String maladieChronique;
+	String tatouage;
+	String manqueDeFer;
+	String operation4derniersMois;
+	String fièvreOuInfection;
+	String soinsDentaires;
+	String médicamentTousLesjours;
+	public Donateur(String cIN, String nomDonateur, String prenomDonateur, String sexe, String ville, String groupage,
+			Date dateDeNaissance, String numTele, String email, String motDePasse, String dernierDonDate,
+			String vIHsida, String maladieChronique, String tatouage, String manqueDeFer, String operation4derniersMois,
+			String fièvreOuInfection, String soinsDentaires, String médicamentTousLesjours) {
+		super();
+		this.cIN = cIN;
+		this.nomDonateur = nomDonateur;
+		this.prenomDonateur = prenomDonateur;
+		this.sexe = sexe;
+		this.ville = ville;
+		this.groupage = groupage;
+		this.dateDeNaissance = dateDeNaissance;
+		this.numTele = numTele;
+		this.email = email;
+		this.motDePasse = motDePasse;
+		this.dernierDonDate = dernierDonDate;
+		this.vIHsida = vIHsida;
+		this.maladieChronique = maladieChronique;
+		this.tatouage=tatouage;
+		this.manqueDeFer = manqueDeFer;
+		this.operation4derniersMois = operation4derniersMois;
+		this.fièvreOuInfection = fièvreOuInfection;
+		this.soinsDentaires = soinsDentaires;
+		this.médicamentTousLesjours = médicamentTousLesjours;
+	}
+	
 	public Donateur(String cIN, String nomDonateur, String prenomDonateur, String sexe, String ville, String groupage,
 			Date dateDeNaissance, String numTele, String email, String motDePasse) {
 		this.cIN = cIN;
@@ -88,6 +123,23 @@ public class Donateur {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 	
+	public  String[] initializeTest() {
+		String dernierDonDate="Plus de 8semaines";
+		String vIHsida="Non";
+		String maladieChronique="Non";
+		String tatouage ="Non";
+		String manqueDeFer="Non";
+		String operation4derniersMois="Non";
+		String fièvreOuInfection="Non";
+		String soinsDentaires="Non";
+		String médicamentTousLesjours="Non";
+		String[] strings= {dernierDonDate,vIHsida, maladieChronique,tatouage,manqueDeFer,operation4derniersMois,fièvreOuInfection
+				,soinsDentaires,médicamentTousLesjours};
+		
+		return strings;
+	}
 	
 }

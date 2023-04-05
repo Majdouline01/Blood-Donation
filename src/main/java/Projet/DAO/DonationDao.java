@@ -46,7 +46,7 @@ public class DonationDao {
         con.close();
         return false;
     }
-    
+    //list for donator requests
     public ArrayList<Demandes> getDemandes(String cin) {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -69,7 +69,7 @@ public class DonationDao {
 		}
 		return list;
     }
-    
+    //list for receiver requests
     public ArrayList<ReceveurDemande> getDemandesReceveur(String cin) {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -94,7 +94,7 @@ public class DonationDao {
 		}
 		return list;
     } 
-    
+    //get all receiver demande with statut 0
     public ArrayList<ReceveurDemande> getAllDemandesReceveur() {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -120,7 +120,7 @@ public class DonationDao {
 		}
 		return list;
     } 
-    
+    //admin accepts receiver request
     public boolean accepterDemandeReceveur(int idDemande) {
     	Connection conn = null;
         PreparedStatement stmt = null;
@@ -145,6 +145,7 @@ public class DonationDao {
         }
         return false; // Update was not successful
     }
+    //admin refuse the receiver request
     public boolean refuserDemandeReceveur(int idDemande) {
     	Connection conn = null;
         PreparedStatement stmt = null;

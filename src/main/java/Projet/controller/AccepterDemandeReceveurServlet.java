@@ -13,16 +13,11 @@ import javax.servlet.http.HttpSession;
 import Projet.DAO.DonationDao;
 import Projet.model.ReceveurDemande;
 
-/**
- * Servlet implementation class AccepterDemandeReceveurServlet
- */
 @WebServlet("/Admin/accepterDemandeReceveur")
 public class AccepterDemandeReceveurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public AccepterDemandeReceveurServlet() {
     }
 

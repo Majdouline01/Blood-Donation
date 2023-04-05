@@ -19,21 +19,17 @@ import Projet.model.Demandes;
 import Projet.model.Donateur;
 import Projet.model.ReceveurDemande;
 
-/**
- * Servlet implementation class SigninAdminServlet
- */
+
 @WebServlet("/Admin/loginAdmin")
 public class SigninAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public SigninAdminServlet() {
     }
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		// get the data from the request
 				String motDePasse = req.getParameter("motDePasse");
 				String email = req.getParameter("email");

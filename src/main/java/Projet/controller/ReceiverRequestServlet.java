@@ -31,9 +31,9 @@ public class ReceiverRequestServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// retrieve data from the request
-		System.out.print("testest");
+		
 		String dateStr = req.getParameter("date");
-		System.out.print(dateStr);
+		
 		// convert date from 04/20/2023 to 2023-04-19 FORMAT------
 		String[] str = dateStr.split("/");
 		dateStr = "";
@@ -46,7 +46,6 @@ public class ReceiverRequestServlet extends HttpServlet {
 		String hopital = req.getParameter("hopital");
 		String maladie = req.getParameter("maladie");
 		String quantiteSang = req.getParameter("quantiteSang");
-		System.out.println(dateStr);
 		String quantite = req.getParameter("hopital");
 		
 		// convert to byte
@@ -63,7 +62,6 @@ public class ReceiverRequestServlet extends HttpServlet {
 			}
 			ordonnance = output.toByteArray();
 		}*/
-		System.out.println(dateStr);
 
 		// retrieve email from session
 		HttpSession session = req.getSession();

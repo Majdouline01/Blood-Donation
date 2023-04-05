@@ -51,11 +51,11 @@
 		<br> <label for="maladie">Sélectionnez votre cas
 			d'uergent :</label><br> <select id="maladie" name="maladie" required>
 			<option value="">Select</option>
-			<option value="maladie1">un accident de route</option>
-			<option value="maladie2">Des maladies du sang</option>
-			<option value="maladie3">Des maladies immunitaire</option>
-			<option value="maladie4">Cancer</option>
-			<option value="maladie5">Autre</option>
+			<option value="un accident de route">un accident de route</option>
+			<option value="Des maladies du sang">Des maladies du sang</option>
+			<option value="Des maladies immunitaire">Des maladies immunitaire</option>
+			<option value="Cancer">Cancer</option>
+			<option value="Autre">Autre</option>
 		</select><br>
 		<br> <label for="quantiteSang">Quantité de sang:</label><br>
 		<input type="number" id="quantiteSang" name="quantiteSang"><br>
