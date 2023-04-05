@@ -3,6 +3,7 @@ package Projet.model;
 import java.sql.Date;
 
 public class Demandes {
+	int id;
 	String cIN;
 	Date dateDemande;
 	int isValidated; //0 : demande done  //1 : donnation done  //2 : blood used  //-1 : demande cancelled
@@ -13,6 +14,13 @@ public class Demandes {
 		super();
 		this.cIN = cIN;
 		this.dateDemande = dateDemande;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getCIN() {
 		return cIN;

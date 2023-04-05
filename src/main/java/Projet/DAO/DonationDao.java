@@ -59,6 +59,7 @@ public class DonationDao {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Demandes demande = new Demandes();
+				demande.setId(rs.getInt("id"));
 				demande.setCIN(rs.getString("CIN"));
 				demande.setDateDemande(java.sql.Date.valueOf(rs.getString("dateDemande")));
 				demande.setIsValidated(Integer.parseInt(rs.getString("isValidated")));
@@ -113,6 +114,31 @@ public class DonationDao {
 				demande.setMaladie(rs.getString("maladie"));
 				demande.setStatut(rs.getInt("statut"));
 				demande.setQuantiteSang(rs.getInt("QuantitéSang"));
+				list.add(demande);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+    } 
+    public ArrayList<Demandes> getAllDemandesDonateur() {
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Demandes> list = new ArrayList<Demandes>();
+		try {
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
+			stmt = conn.prepareStatement("SELECT * FROM demandes WHERE isValidated = 0 AND dateDemande = ?");
+			LocalDate currentDate = LocalDate.now();
+            stmt.setDate(1, java.sql.Date.valueOf(currentDate));
+            
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Demandes demande = new Demandes();
+				demande.setId(rs.getInt("id"));
+				demande.setCIN(rs.getString("CIN"));
+				demande.setDateDemande(java.sql.Date.valueOf(rs.getString("dateDemande")));
+				demande.setIsValidated(rs.getInt("isValidated"));
 				list.add(demande);
 			}
 		} catch (SQLException e) {

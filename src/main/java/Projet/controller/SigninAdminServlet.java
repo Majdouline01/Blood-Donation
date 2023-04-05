@@ -29,6 +29,7 @@ public class SigninAdminServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+				
 		
 		// get the data from the request
 				String motDePasse = req.getParameter("motDePasse");
@@ -36,16 +37,19 @@ public class SigninAdminServlet extends HttpServlet {
 				//check if admin is in database
 				 AdminDao adminDao= new AdminDao();
 				 Admin admin = adminDao.CheckAdmin(email, motDePasse);
-				 
 				 DonationDao donationDao = new DonationDao();
 				 ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
 				 listDemandes = donationDao.getAllDemandesReceveur();
+				 ArrayList<Demandes> listDemandesDonateur = new ArrayList<Demandes>();
+				 listDemandesDonateur = donationDao.getAllDemandesDonateur();
 				 
 				 if (admin != null) {
+					 adminDao.deleteOldDemandes();
 				     HttpSession session = req.getSession();
 				     session.setAttribute("admin", admin);
 				     session.setAttribute("email", email);
 				     session.setAttribute("listDemandes", listDemandes);
+				     session.setAttribute("listDemandesDonateur", listDemandesDonateur);
 				     res.sendRedirect("profilAdmin.jsp");
 				     
 				     //System.out.print(listDemandes.get(0).getCIN());

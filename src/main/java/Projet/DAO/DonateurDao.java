@@ -88,4 +88,33 @@ public class DonateurDao {
 		return null;
 
 	}
+	
+	public String getGroupageByCIN(String cin) {
+        String groupage = null;
+        Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+        try {
+        	conn = getConnection();
+			stmt = conn.prepareStatement("SELECT groupage FROM donateur WHERE CIN = ?");
+			stmt.setString(1, cin);
+            ResultSet resultSet = stmt.executeQuery();
+            
+            if (resultSet.next()) {
+                groupage = resultSet.getString("groupage");
+            }
+            
+            resultSet.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return groupage;
+    }
+	
+	
+	
 }

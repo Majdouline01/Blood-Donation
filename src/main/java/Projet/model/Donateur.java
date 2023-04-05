@@ -13,19 +13,22 @@ public class Donateur {
 	String numTele;
 	String email;
 	String motDePasse;
-	String dernierDonDate;
-	String vIHsida;
-	String maladieChronique;
-	String tatouage;
-	String manqueDeFer;
-	String operation4derniersMois;
-	String fièvreOuInfection;
-	String soinsDentaires;
-	String médicamentTousLesjours;
+	boolean dernierDonDate;
+	boolean vIHsida;
+	boolean maladieChronique;
+	boolean tatouage;
+	boolean manqueDeFer;
+	boolean operation4derniersMois;
+	boolean fièvreOuInfection;
+	boolean soinsDentaires;
+	boolean médicamentTousLesjours;
+	
+	
 	public Donateur(String cIN, String nomDonateur, String prenomDonateur, String sexe, String ville, String groupage,
-			Date dateDeNaissance, String numTele, String email, String motDePasse, String dernierDonDate,
-			String vIHsida, String maladieChronique, String tatouage, String manqueDeFer, String operation4derniersMois,
-			String fièvreOuInfection, String soinsDentaires, String médicamentTousLesjours) {
+			Date dateDeNaissance, String numTele, String email, String motDePasse, boolean dernierDonDate,
+			boolean vIHsida, boolean maladieChronique, boolean tatouage, boolean manqueDeFer,
+			boolean operation4derniersMois, boolean fièvreOuInfection, boolean soinsDentaires,
+			boolean médicamentTousLesjours) {
 		super();
 		this.cIN = cIN;
 		this.nomDonateur = nomDonateur;
@@ -40,14 +43,13 @@ public class Donateur {
 		this.dernierDonDate = dernierDonDate;
 		this.vIHsida = vIHsida;
 		this.maladieChronique = maladieChronique;
-		this.tatouage=tatouage;
+		this.tatouage = tatouage;
 		this.manqueDeFer = manqueDeFer;
 		this.operation4derniersMois = operation4derniersMois;
 		this.fièvreOuInfection = fièvreOuInfection;
 		this.soinsDentaires = soinsDentaires;
 		this.médicamentTousLesjours = médicamentTousLesjours;
 	}
-	
 	public Donateur(String cIN, String nomDonateur, String prenomDonateur, String sexe, String ville, String groupage,
 			Date dateDeNaissance, String numTele, String email, String motDePasse) {
 		this.cIN = cIN;
@@ -126,20 +128,17 @@ public class Donateur {
 
 
 	
-	public  String[] initializeTest() {
-		String dernierDonDate="Plus de 8semaines";
-		String vIHsida="Non";
-		String maladieChronique="Non";
-		String tatouage ="Non";
-		String manqueDeFer="Non";
-		String operation4derniersMois="Non";
-		String fièvreOuInfection="Non";
-		String soinsDentaires="Non";
-		String médicamentTousLesjours="Non";
-		String[] strings= {dernierDonDate,vIHsida, maladieChronique,tatouage,manqueDeFer,operation4derniersMois,fièvreOuInfection
-				,soinsDentaires,médicamentTousLesjours};
-		
-		return strings;
+	public  void initializeTest() {
+		this.dernierDonDate= true;
+		this.vIHsida=true;
+		this.maladieChronique=true;
+		this.tatouage = true;
+		this.manqueDeFer=true;
+		this.operation4derniersMois=true;
+		this.fièvreOuInfection=true;
+		this.soinsDentaires=true;
+		this.médicamentTousLesjours=true;
+
 	}
 	
 }
