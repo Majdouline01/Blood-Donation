@@ -21,7 +21,7 @@ public class ReceiverRequestDao {
             ps.setDate(3, demande.getDate());
             ps.setString(4, demande.getMaladie());
             ps.setFloat(5, demande.getQuantiteSang());
-            ps.setString(6, demande.getcIN());
+            ps.setInt(6, demande.getStatut());
             ps.executeUpdate();
             con.close();
     }

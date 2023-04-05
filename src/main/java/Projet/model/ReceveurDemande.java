@@ -5,24 +5,31 @@ import java.sql.Date;
 import javax.servlet.http.Part;
 
 public class ReceveurDemande {
+	int id;
 	String cIN;
 	String hopital;
 	Date date;
 	String maladie;
-	float quantiteSang;
+	int quantiteSang;
 	byte[] ordonnance;
-	String statut;
+	int statut; //0 : demande done  //1 : demande approuved  //-1 : demande cancelled
 	public ReceveurDemande() {
 		
 	}
-	public ReceveurDemande(String cIN, String hopital, Date date, String maladie, float quantiteSang,
-			String statut) {
+	public ReceveurDemande(String cIN, String hopital, Date date, String maladie, int quantiteSang,
+			int statut) {
 		this.cIN = cIN;
 		this.hopital = hopital;
 		this.date = date;
 		this.maladie = maladie;
 		this.quantiteSang = quantiteSang;
-		this.statut = "en cours de traitement";
+		this.statut = 0;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getcIN() {
 		return cIN;
@@ -48,10 +55,10 @@ public class ReceveurDemande {
 	public void setMaladie(String maladie) {
 		this.maladie = maladie;
 	}
-	public float getQuantiteSang() {
+	public int getQuantiteSang() {
 		return quantiteSang;
 	}
-	public void setQuantiteSang(float quantiteSang) {
+	public void setQuantiteSang(int quantiteSang) {
 		this.quantiteSang = quantiteSang;
 	}
 	public byte[] getOrdonnance() {
@@ -60,10 +67,10 @@ public class ReceveurDemande {
 	public void setOrdonnance(byte[] ordonnance) {
 		this.ordonnance = ordonnance;
 	}
-	public String getStatut() {
+	public int getStatut() {
 		return statut;
 	}
-	public void setStatut(String statut) {
+	public void setStatut(int statut) {
 		this.statut = statut;
 	}
 	

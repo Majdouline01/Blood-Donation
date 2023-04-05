@@ -47,7 +47,8 @@ public class ReceiverRequestServlet extends HttpServlet {
 		String maladie = req.getParameter("maladie");
 		String quantiteSang = req.getParameter("quantiteSang");
 		System.out.println(dateStr);
-		float parsedquantiteSang = Float.parseFloat(quantiteSang);
+		String quantite = req.getParameter("hopital");
+		
 		// convert to byte
 		/*
 		Part filePart1 = req.getPart("ordonnance");
@@ -64,12 +65,11 @@ public class ReceiverRequestServlet extends HttpServlet {
 		}*/
 		System.out.println(dateStr);
 
-		System.out.println(parsedquantiteSang);
 		// retrieve email from session
 		HttpSession session = req.getSession();
 		String email = (String) session.getAttribute("email");
 		String cIN = "";
-		String statut = "en cours de traitement";
+		int statut = 0;
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -98,7 +98,7 @@ public class ReceiverRequestServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		ReceveurDemande demande = new ReceveurDemande(cIN, hopital, date, maladie, parsedquantiteSang,
+		ReceveurDemande demande = new ReceveurDemande(cIN, hopital, date, maladie, Integer.parseInt(quantiteSang),
 				statut);
 		// insert the request to database
 		try {
