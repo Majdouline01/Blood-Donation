@@ -25,4 +25,6 @@ public class ReceiverRequestDao {
             ps.executeUpdate();
             con.close();
     }
+    
+
 }

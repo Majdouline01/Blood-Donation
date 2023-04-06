@@ -46,7 +46,7 @@ public class DonationDao {
         con.close();
         return false;
     }
-    //list for donator requests
+    //list for donator requests for Donatuer
     public ArrayList<Demandes> getDemandes(String cin) {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -70,7 +70,7 @@ public class DonationDao {
 		}
 		return list;
     }
-    //list for receiver requests
+    //list for receiver requests for Receveur
     public ArrayList<ReceveurDemande> getDemandesReceveur(String cin) {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -95,7 +95,7 @@ public class DonationDao {
 		}
 		return list;
     } 
-    //get all receiver demande with statut 0
+    //get all receiver demande with statut 0 //for ADMIN
     public ArrayList<ReceveurDemande> getAllDemandesReceveur() {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -121,6 +121,7 @@ public class DonationDao {
 		}
 		return list;
     } 
+    //get all todat demandes donateur for ADMIN
     public ArrayList<Demandes> getAllDemandesDonateur() {
     	Connection conn = null;
 		PreparedStatement stmt = null;

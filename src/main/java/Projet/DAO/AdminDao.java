@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import Projet.model.Admin;
 import Projet.model.Donateur;
@@ -97,7 +99,7 @@ public class AdminDao {
     }
 	}
 	
-	public String getCINById(int id) {
+	public String getCINByIdDemande(int id) {
         String cin = null;
         String query = "SELECT CIN FROM demandes WHERE id = ?";
         
@@ -127,13 +129,12 @@ public class AdminDao {
         
         StockDao stockDao = new StockDao();
         
-        
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
             stmt = conn.prepareStatement("UPDATE demandes SET isValidated = 1 WHERE id = ?");
             stmt.setInt(1, idDemande);
             int numRowsUpdated = stmt.executeUpdate();
-            stockDao.incrementQuantite(getCINById(idDemande));
+            stockDao.incrementQuantite(getCINByIdDemande(idDemande));
             return numRowsUpdated == 1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -174,5 +175,6 @@ public class AdminDao {
         }
         return false; // Update was not successful
     }
+	
 	
 }
