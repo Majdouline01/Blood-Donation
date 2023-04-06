@@ -154,7 +154,7 @@ public class StockDao {
     }
 	
 	
-	public boolan AccepterDemandeReceveur(int idDemande, String type, int quantity) {
+	public Boolean AccepterDemandeReceveur(int idDemande, String type, int quantity) {
 		
 		String cinReceveur = getCINReceveur(idDemande);
 		String bloodType = getBloodType(cinReceveur);
