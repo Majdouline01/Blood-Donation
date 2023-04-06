@@ -5,11 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin's login page</title>
-<link rel="stylesheet" type="text/css" href="../css.css">
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../SignIn.css">
 </head>
 <body>
 <nav>
-		<ul>
+<div>
+		<a href="#" class="logo"><i class='bx bx-donate-blood'></i><span>Donate</span></a>
+	</div>
+		<ul class="nav-links">
 			<li><a href="../index.jsp">Home</a></li>
 			<li><a href="../Main/about.jsp">About</a></li>
 			<li class="dropdown"><a href="#">Users</a>
@@ -18,18 +24,37 @@
 					<a href="../Receveur/SignInReceveur.jsp">Receveur</a> 
 					<a href="signInAdmin.jsp">Admin</a>
 				</div></li>
-			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
-	<form action="loginAdmin" method="post">
-	<label for="AdminName">Entrer votre email:</label>
-	<input type="text" id='email' name='email' required><br>
-	<br>
-	<label for="password">Entrer votre mot de passe:</label>
-	<input type="password" id="motDePasse" name="motDePasse" required><br>
-	<br>
-	<input type="submit" value="connexion">
-	</form>
+	<div class="container">
+		<h1 class="text-center mb-4">Bonjour Cher admin, vous pouvez
+			vous connecter à votre compte</h1>
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<form action="loginAdmin" method="post">
+							<div class="form-group">
+								<label for="email">Email :</label> <input type="email"
+									id="email" name="email" class="form-control" required autofocus>
+							</div>
+							<div class="form-group">
+								<label for="password">Mot de passe :</label> <input
+									type="password" id="motDePasse" name="motDePasse"
+									class="form-control" required>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block mt-4">Connexion</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+		crossorigin="anonymous"></script>
+	
 </body>
 </html>
 
