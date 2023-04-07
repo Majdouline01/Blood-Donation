@@ -321,4 +321,32 @@ public class StockDao {
 	    }
 	}
 	
+	public ArrayList<Stock> getStockStats(){
+		ArrayList<Stock> stocks = new ArrayList<>();
+	    String query = "SELECT * FROM stock";
+	    
+	    try {
+	        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
+	        PreparedStatement statement = connection.prepareStatement(query);
+	        ResultSet resultSet = statement.executeQuery();
+	        
+	        while (resultSet.next()) {
+	            Stock stock = new Stock();
+	            stock.setId(resultSet.getInt("id"));
+	            stock.setType(resultSet.getString("type"));
+	            stock.setQuantite(resultSet.getInt("quantite"));
+	            
+	            stocks.add(stock);
+	        }
+	        
+	        resultSet.close();
+	        statement.close();
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    return stocks;
+	}
+	
 }

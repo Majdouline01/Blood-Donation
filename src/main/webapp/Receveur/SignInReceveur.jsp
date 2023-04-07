@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="../SignIn.css">
 </head>
 <body>
+<c:set var="error" value="${sessionScope.error}" />
 	<nav>
 		<div>
 			<a href="#" class="logo"><i class='bx bx-donate-blood'></i><span>Donate</span></a>
@@ -45,6 +47,12 @@
                     <label for="password">Mot de passe :</label>
                     <input type="password" id="motDePasse" name="motDePasse" class="form-control" required>
                   </div>
+                  <c:if test="${error == true}">
+   								<span class="text-danger">Invalid username or password</span>
+   								<%
+    								session.removeAttribute("error");
+								%>
+							</c:if>
                   <button type="submit" class="btn btn-primary btn-block mt-4">Connexion</button>
                 </form>
               </div>

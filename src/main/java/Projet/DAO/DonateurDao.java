@@ -115,6 +115,49 @@ public class DonateurDao {
         return groupage;
     }
 	
+	public boolean updateDnateur(Donateur donateur) {
+        Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+		    conn = getConnection();
+		    stmt = conn.prepareStatement("UPDATE donateur SET NomDonateur = ?, PrenomDonateur = ?, sexe = ?, ville = ?, DateDeNaissance = ?, numTele = ?, email = ? WHERE CIN = ?");
+		    stmt.setString(1, donateur.getNomDonateur());
+		    stmt.setString(2, donateur.getPrenomDonateur());
+		    stmt.setString(3, donateur.getSexe());
+		    stmt.setString(4, donateur.getVille());
+		    stmt.setDate(5, donateur.getDateDeNaissance());
+		    stmt.setString(6, donateur.getNumTele());
+		    stmt.setString(7, donateur.getEmail());
+		    stmt.setString(8, donateur.getcIN());
+		    int rowsUpdated = stmt.executeUpdate();
+
+		    if (rowsUpdated == 0) {
+		        return false;
+		    }
+
+		} catch (SQLException e) {
+		    e.printStackTrace();
+		    return false;
+		} finally {
+		    try {
+		        if (rs != null) {
+		            rs.close();
+		        }
+		        if (stmt != null) {
+		            stmt.close();
+		        }
+		        if (conn != null) {
+		            conn.close();
+		        }
+		    } catch (SQLException ex) {
+		        ex.printStackTrace();
+		    }
+		}
+
+		return true;
+    }
 	
 	
 }

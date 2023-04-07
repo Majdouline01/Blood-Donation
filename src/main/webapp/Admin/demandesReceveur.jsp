@@ -16,6 +16,7 @@
 			<li><a href="profilAdmin.jsp">Profil</a></li>
 			<li><a href="demandesDonateur.jsp">Demandes de Don</a></li>
 			<li><a href="demandesReceveur.jsp">Demandes de recu</a></li>
+			<li><a href="statistics.jsp">Stats</a></li>
 			<li>
 				<form action="logoutAdmin" method="post">
 					<a><button type="submit">Se déconnecter</button></a>

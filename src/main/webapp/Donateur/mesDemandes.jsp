@@ -59,10 +59,14 @@
 				<td><%=myObject.getDateDemande()%></td>
 				<td>
 					<% if (isValidated == 0 ) { %>
-                    <span class="badge bg-warning">En cours de traitement</span>
-                <% } else { %>
-                    <span class="badge bg-success">Success</span>
-                <% } %>
+                    <span class="badge bg-warning">etat 0</span>
+                <% } else if (isValidated == 1 ){ %>
+                    <span class="badge bg-success">etat 1</span>
+                <% } else if (isValidated == 2 ){ %>
+                	<span class="badge bg-success">etat 2</span>
+                	<% } else if (isValidated == -1 ){ %>
+                	<span class="badge bg-success">etat -1</span>
+                	<%} %>
 				</td>
 				
 			</tr>

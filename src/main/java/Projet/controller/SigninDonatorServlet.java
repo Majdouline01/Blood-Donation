@@ -31,20 +31,21 @@ public class SigninDonatorServlet extends HttpServlet {
 		 DonationDao donationDao = new DonationDao();
 		 Donateur donateur = donatorDao.CheckDonateur(email, motDePasse);
 		 
-		 ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
-		 listDemandes = donationDao.getDemandes(donateur.getcIN());
-		 //String test = "test";
+		 boolean error = false;
 		 
 		 if (donateur != null) {
+			 ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
+			 listDemandes = donationDao.getDemandes(donateur.getcIN());
 		     HttpSession session = req.getSession();
 		     session.setAttribute("donateur", donateur);
 		     session.setAttribute("email", email);
 		     session.setAttribute("listDemandes", listDemandes);
 		     res.sendRedirect("profilDonateur.jsp");
-		     
-		     //System.out.print(listDemandes.get(0).getCIN());
 		 } else {
-		     res.getWriter().println("Invalid email or password. Please try again.");
+			 error = true;
+			 HttpSession session = req.getSession();
+			 session.setAttribute("error", error);
+			 res.sendRedirect("signInDonateur.jsp");
 		 }
 	
 	}

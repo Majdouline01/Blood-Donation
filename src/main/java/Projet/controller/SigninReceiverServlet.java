@@ -35,17 +35,22 @@ public class SigninReceiverServlet extends HttpServlet {
 				ReceveurDao receveurDao= new ReceveurDao();
 				DonationDao donationDao = new DonationDao();
 				Receveur receveur = receveurDao.CheckReceveur(email, motDePasse);
-				ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
-				 listDemandes = donationDao.getDemandesReceveur(receveur.getcIN());
-				 
+				
+				boolean error = false;
+				
 				 if (receveur != null) {
+					 ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
+					 listDemandes = donationDao.getDemandesReceveur(receveur.getcIN());
 				     HttpSession session = req.getSession();
 				     session.setAttribute("receveur", receveur);
 				     session.setAttribute("email", email);
 				     session.setAttribute("listDemandes", listDemandes);
 				     res.sendRedirect("ReceiverHomePage.jsp");
 				 } else {
-				     res.getWriter().println("Invalid email or password. Please try again.");
+					 error = true;
+					 HttpSession session = req.getSession();
+					 session.setAttribute("error", error);
+					 res.sendRedirect("SignInReceveur.jsp");
 				 }
 			
 	}

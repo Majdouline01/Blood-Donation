@@ -14,10 +14,12 @@ import Projet.DAO.AdminDao;
 import Projet.DAO.DonateurDao;
 import Projet.DAO.DonationDao;
 import Projet.DAO.ReceiverRequestDao;
+import Projet.DAO.StockDao;
 import Projet.model.Admin;
 import Projet.model.Demandes;
 import Projet.model.Donateur;
 import Projet.model.ReceveurDemande;
+import Projet.model.Stock;
 
 
 @WebServlet("/Admin/loginAdmin")
@@ -37,24 +39,36 @@ public class SigninAdminServlet extends HttpServlet {
 				//check if admin is in database
 				 AdminDao adminDao= new AdminDao();
 				 Admin admin = adminDao.CheckAdmin(email, motDePasse);
-				 DonationDao donationDao = new DonationDao();
-				 ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
-				 listDemandes = donationDao.getAllDemandesReceveur();
-				 ArrayList<Demandes> listDemandesDonateur = new ArrayList<Demandes>();
-				 listDemandesDonateur = donationDao.getAllDemandesDonateur();
+				 
+				 
+				 
+				 boolean error = false;
 				 
 				 if (admin != null) {
+					 DonationDao donationDao = new DonationDao();
+					 ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
+					 listDemandes = donationDao.getAllDemandesReceveur();
+					 ArrayList<Demandes> listDemandesDonateur = new ArrayList<Demandes>();
+					 listDemandesDonateur = donationDao.getAllDemandesDonateur();
+					 StockDao stockDao = new StockDao();
+					 ArrayList<Stock> stocks = new ArrayList<>();
+					 stocks = stockDao.getStockStats();
+					 			 	
 					 adminDao.deleteOldDemandes();
 				     HttpSession session = req.getSession();
 				     session.setAttribute("admin", admin);
 				     session.setAttribute("email", email);
 				     session.setAttribute("listDemandes", listDemandes);
 				     session.setAttribute("listDemandesDonateur", listDemandesDonateur);
+				     session.setAttribute("stocks", stocks);
 				     res.sendRedirect("profilAdmin.jsp");
 				     
 				     //System.out.print(listDemandes.get(0).getCIN());
 				 } else {
-				     res.getWriter().println("Invalid email or password. Please try again.");
+					 error = true;
+					 HttpSession session = req.getSession();
+					 session.setAttribute("error", error);
+					 res.sendRedirect("signInAdmin.jsp");
 				 }
 			
 	}

@@ -35,8 +35,8 @@ public class AccepterDemandeReceveurServlet extends HttpServlet {
 				 HttpSession session = req.getSession();
 				 session.setAttribute("listDemandes", listDemandes);
 				res.sendRedirect("demandesReceveur.jsp");
-			}else System.out.print("error1");
-		}else System.out.print("error 2");
+			}else res.sendRedirect("../errorPage.jsp");
+		}else res.sendRedirect("../errorPage.jsp");
 			
 		
 			
