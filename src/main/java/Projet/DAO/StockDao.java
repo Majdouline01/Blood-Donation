@@ -1,12 +1,15 @@
 package Projet.DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import Projet.model.*;
 
@@ -67,7 +70,7 @@ public class StockDao {
             statement.setString(1, CinReceveur);
             ResultSet result = statement.executeQuery();
             if (result.next()) {
-            	bloodType = result.getString("CIN");
+            	bloodType = result.getString("Groupage");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -153,34 +156,128 @@ public class StockDao {
         return donorBloodTypes;
     }
 	
+	public String getBiggestStockType(ArrayList<String> types, int quantity) {
+        String bestType = "";
+        int maxQuantite = 0;
+        
+        try {
+            // Connect to the MySQL database
+            Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/projetfinetude",
+                "root",
+                ""
+            );
+            
+            // Create a statement object
+            Statement statement = connection.createStatement();
+            
+            // Iterate over each type
+            for (String type : types) {
+                // Execute the query to get the max quantite for the given type and quantity
+                String query = "SELECT quantite FROM stock WHERE type='" + type + "' AND quantite >= " + quantity;
+                ResultSet resultSet = statement.executeQuery(query);
+                
+                // Extract the max quantite from the result set
+                int currentMaxQuantite = 0;
+                while (resultSet.next()) {
+                    currentMaxQuantite = resultSet.getInt(1);
+                }
+                
+                // If the current max quantite is greater than the current best max quantite, update the best type and max quantite
+                if (currentMaxQuantite > maxQuantite) {
+                    maxQuantite = currentMaxQuantite;
+                    bestType = type;
+                }
+            }
+            
+            // Close the statement and connection objects
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return bestType;
+    }
 	
-	/**public Boolean AccepterDemandeReceveur(int idDemande, String type, int quantity) {
-		
+	public ReceveurDemande getReceveurDemandeById(int id) {
+        ReceveurDemande receveurDemande = null;
+        
+        try {
+            // Connect to the MySQL database
+            Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/projetfinetude",
+                "root",
+                ""
+            );
+            
+            // Create a statement object
+            Statement statement = connection.createStatement();
+            
+            // Execute the query to retrieve the row with the given id
+            String query = "SELECT * FROM receveurdemande WHERE id=" + id;
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            // If a row is found, create a ReceveurDemande object with its values
+            if (resultSet.next()) {
+                String cin = resultSet.getString("CIN");
+                String hopital = resultSet.getString("Hopital");
+                Date date = resultSet.getDate("Date");
+                String maladie = resultSet.getString("maladie");
+                int quantiteSang = resultSet.getInt("QuantitéSang");
+                //String ordonance = resultSet.getString("ordonance");
+                int statut = resultSet.getInt("statut");
+                receveurDemande = new ReceveurDemande(cin, hopital, date, maladie, quantiteSang, statut);
+                receveurDemande.setId(id);
+            }
+            
+            // Close the statement and connection objects
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return receveurDemande;
+    }
+	
+	public Boolean AccepterDemandeReceveur(int idDemande) {
+		ReceveurDemande demandeReceveur = getReceveurDemandeById(idDemande);
+		//System.out.print(demandeReceveur);
 		String cinReceveur = getCINReceveur(idDemande);
+		//System.out.print(cinReceveur);
 		String bloodType = getBloodType(cinReceveur);
+		//System.out.print(bloodType);
 		ArrayList<String> compatibleBloodTypes = getCompatibleBloodTypes(bloodType);
+		//System.out.print(compatibleBloodTypes);
+		String bestType = getBiggestStockType(compatibleBloodTypes,demandeReceveur.getQuantiteSang());
+		//System.out.print(bestType);
+		int bloodId = getBloodId(bestType);
+		//System.out.print(bloodId);
+		if(bestType == "") return false;
 		
+		//System.out.print("test Begin ");
 		
-		ArrayList<ReceveurDemande> demandes = new ArrayList<ReceveurDemande>();
+		ArrayList<Demandes> demandes = new ArrayList<Demandes>();
 	    String query = "SELECT * FROM demandes WHERE isValidated = 1 AND type = ? ORDER BY dateDemande LIMIT ?";
 	    
 	    try {
 	        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
 	        PreparedStatement statement = connection.prepareStatement(query);
-	        statement.setString(1, type);
-	        statement.setInt(2, quantity);
+	        statement.setInt(1, bloodId);
+	        statement.setInt(2, demandeReceveur.getQuantiteSang());
 	        ResultSet resultSet = statement.executeQuery();
 	        
 	        // Check if the number of retrieved demandes is equal to or greater than the requested quantity
 	        int count = 0;
 	        while (resultSet.next()) {
 	            count++;
-	            Demande demande = new Demande();
+	            Demandes demande = new Demandes();
 	            demande.setId(resultSet.getInt("id"));
 	            demande.setCIN(resultSet.getString("CIN"));
 	            demande.setDateDemande(resultSet.getDate("dateDemande"));
 	            demande.setIsValidated(resultSet.getInt("isValidated"));
-	            demande.setType(resultSet.getString("type"));
+	            demande.setType(resultSet.getInt("type"));
 	            
 	            demandes.add(demande);
 	        }
@@ -188,7 +285,7 @@ public class StockDao {
 	        resultSet.close();
 	        statement.close();
 	        
-	        if (count >= quantity) {
+	        if (count >= demandeReceveur.getQuantiteSang()) {
 	            // Update the isValidated field for the retrieved demandes
 	            String updateQuery = "UPDATE demandes SET isValidated = 2 WHERE id IN (";
 	            for (int i = 0; i < demandes.size(); i++) {
@@ -206,8 +303,8 @@ public class StockDao {
 	            // Decrement the quantity in the stock table
 	            String decrementQuery = "UPDATE stock SET quantite = quantite - ? WHERE type = ?";
 	            PreparedStatement decrementStatement = connection.prepareStatement(decrementQuery);
-	            decrementStatement.setInt(1, quantity);
-	            decrementStatement.setString(2, type);
+	            decrementStatement.setInt(1, demandeReceveur.getQuantiteSang());
+	            decrementStatement.setString(2, bestType);
 	            decrementStatement.executeUpdate();
 	            decrementStatement.close();
 	            
@@ -222,6 +319,6 @@ public class StockDao {
 	        e.printStackTrace();
 	        return false;
 	    }
-	}*/
+	}
 	
 }

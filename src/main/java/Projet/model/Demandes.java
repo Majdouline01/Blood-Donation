@@ -7,6 +7,7 @@ public class Demandes {
 	String cIN;
 	Date dateDemande;
 	int isValidated; //0 : demande done  //1 : donnation done  //2 : blood used  //-1 : demande cancelled
+	int type;
 	public Demandes() {
 		
 	}
@@ -40,4 +41,11 @@ public class Demandes {
 	public int getIsValidated() {
 		return this.isValidated;
 	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	
 }

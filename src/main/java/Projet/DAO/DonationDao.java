@@ -36,9 +36,10 @@ public class DonationDao {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
         if (isDateAvailable(demande.getDateDemande())) {
-            PreparedStatement ps = con.prepareStatement("INSERT INTO demandes (CIN, dateDemande) VALUES (?, ?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO demandes (CIN, dateDemande,type) VALUES (?, ?, ?)");
             ps.setString(1, demande.getCIN());
             ps.setDate(2, demande.getDateDemande());
+            ps.setInt(3,demande.getType());
             ps.executeUpdate();
             con.close();
             return true;

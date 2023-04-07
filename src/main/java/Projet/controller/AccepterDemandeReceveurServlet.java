@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Projet.DAO.DonationDao;
+import Projet.DAO.StockDao;
 import Projet.model.ReceveurDemande;
 
 @WebServlet("/Admin/accepterDemandeReceveur")
@@ -26,13 +27,18 @@ public class AccepterDemandeReceveurServlet extends HttpServlet {
 		int idDemande = Integer.parseInt(idString);
 		
 		DonationDao donationDao = new DonationDao();
-		if(donationDao.accepterDemandeReceveur(idDemande)) {
-			ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
-			 listDemandes = donationDao.getAllDemandesReceveur();
-			 HttpSession session = req.getSession();
-			 session.setAttribute("listDemandes", listDemandes);
-			res.sendRedirect("demandesReceveur.jsp");
-		}//Add else section
+		StockDao stockDao = new StockDao();
+		if(stockDao.AccepterDemandeReceveur(idDemande)) {
+			if(donationDao.accepterDemandeReceveur(idDemande)) {
+				ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
+				 listDemandes = donationDao.getAllDemandesReceveur();
+				 HttpSession session = req.getSession();
+				 session.setAttribute("listDemandes", listDemandes);
+				res.sendRedirect("demandesReceveur.jsp");
+			}else System.out.print("error1");
+		}else System.out.print("error 2");
+			
+		
 			
 		
 		

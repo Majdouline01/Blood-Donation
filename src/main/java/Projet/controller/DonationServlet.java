@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 
 
 import Projet.DAO.DonationDao;
+import Projet.DAO.StockDao;
 import Projet.model.Demandes;
 
 
@@ -56,6 +57,8 @@ public class DonationServlet extends HttpServlet {
 	    	HttpSession session = req.getSession();
 	    	String email = (String) session.getAttribute("email");
 	        String cIN = "";
+	        StockDao stockDao = new StockDao();
+	        int type = 0;
 	        Connection con = null;
 	        PreparedStatement ps = null;
 	        ResultSet rs = null;
@@ -63,11 +66,12 @@ public class DonationServlet extends HttpServlet {
 	        try {
 	            Class.forName("com.mysql.cj.jdbc.Driver");
 	            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
-	            ps = con.prepareStatement("SELECT CIN FROM donateur WHERE email = ?");
+	            ps = con.prepareStatement("SELECT * FROM donateur WHERE email = ?");
 	            ps.setString(1, email);
 	            rs = ps.executeQuery();
 	            if (rs.next()) {
 	                cIN = rs.getString("CIN");
+	                type = stockDao.getBloodId(rs.getString("groupage"));
 	            }
 	        } catch (ClassNotFoundException | SQLException e) {
 	            e.printStackTrace();
@@ -82,6 +86,7 @@ public class DonationServlet extends HttpServlet {
 	        }
 	        
 	        Demandes demande = new Demandes(cIN, date);
+	        demande.setType(type);
 	        //insert the date to data base and
 	        try {
 	            DonationDao.insertDate(demande);
