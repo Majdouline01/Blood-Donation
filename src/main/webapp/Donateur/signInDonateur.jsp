@@ -60,7 +60,7 @@
 				<div class="mt-3 text-center">
 					<p>
 						Vous n'avez pas de compte, inscrivez-vous <a
-							href="SignUpDonator.jsp">ici</a>.
+							href="test.jsp">ici</a>.
 					</p>
 				</div>
 			</div>

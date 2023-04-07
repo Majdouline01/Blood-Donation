@@ -81,6 +81,8 @@ Welcome, ${donateur.prenomDonateur}!
             <td>Ville</td>
             <td id="ville"><span>${donateur.ville}</span></td>
         </tr>
+        
+        
     </table>
     <button type="button" id="editProfileButton">Modifier le profil</button>
     <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer les modifications</button>
