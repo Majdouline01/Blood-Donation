@@ -16,7 +16,7 @@ public class DonateurDao {
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 
-	private static final String INSERT_DONATEUR_SQL = "INSERT INTO donateur (CIN, NomDonateur, PrenomDonateur, sexe, ville, groupage, DateDeNaissance, numTele, email, motDePasse, dernierDonDate, vIHsida, maladieChronique, tatouage, manqueDeFer, operation4derniersMois, fièvreOuInfection, soinsDentaires, médicamentTousLesjours) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+	private static final String INSERT_DONATEUR_SQL = "INSERT INTO donateur (CIN, NomDonateur, PrenomDonateur, sexe, ville, groupage, DateDeNaissance, numTele, email, motDePasse, dernierDonDate, vIHsida, maladieChronique, tatouage, manqueDeFer, operation4derniersMois, fièvreOuInfection, soinsDentaires, médicamentTousLesjours) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 1, 1, 1, 1, 1, 1, 1, 1);";
 
 	public DonateurDao() {
 	}
@@ -49,7 +49,6 @@ public class DonateurDao {
 			preparedStatement.setString(8, donateur.getNumTele());
 			preparedStatement.setString(9, donateur.getEmail());
 			preparedStatement.setString(10, donateur.getMotDePasse());
-			preparedStatement.setBoolean(11, donateur.initializeTest(dernierDonDate));
 			
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -124,15 +123,13 @@ public class DonateurDao {
 		
 		try {
 		    conn = getConnection();
-		    stmt = conn.prepareStatement("UPDATE donateur SET NomDonateur = ?, PrenomDonateur = ?, sexe = ?, ville = ?, DateDeNaissance = ?, numTele = ?, email = ? WHERE CIN = ?");
+		    stmt = conn.prepareStatement("UPDATE donateur SET NomDonateur = ?, PrenomDonateur = ?, sexe = ?, ville = ?, numTele = ? WHERE CIN = ?");
 		    stmt.setString(1, donateur.getNomDonateur());
 		    stmt.setString(2, donateur.getPrenomDonateur());
 		    stmt.setString(3, donateur.getSexe());
 		    stmt.setString(4, donateur.getVille());
-		    stmt.setDate(5, donateur.getDateDeNaissance());
-		    stmt.setString(6, donateur.getNumTele());
-		    stmt.setString(7, donateur.getEmail());
-		    stmt.setString(8, donateur.getcIN());
+		    stmt.setString(5, donateur.getNumTele());
+		    stmt.setString(6, donateur.getcIN());
 		    int rowsUpdated = stmt.executeUpdate();
 
 		    if (rowsUpdated == 0) {

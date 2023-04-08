@@ -28,6 +28,7 @@ public class AccepterDemandeReceveurServlet extends HttpServlet {
 		
 		DonationDao donationDao = new DonationDao();
 		StockDao stockDao = new StockDao();
+		
 		if(stockDao.AccepterDemandeReceveur(idDemande)) {
 			if(donationDao.accepterDemandeReceveur(idDemande)) {
 				ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();

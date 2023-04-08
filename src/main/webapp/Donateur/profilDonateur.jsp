@@ -3,10 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
-/* if (session.getAttribute("user") == null) { 
+ if (session.getAttribute("donateur") == null) { 
    response.sendRedirect("signInDonateur.jsp");
+   
    return;
-   }*/
+   }
 %>
 
 <!DOCTYPE html>
@@ -37,7 +38,7 @@
 <body>
 <nav>
     <ul>
-        <li><a href="#">Profil</a></li>
+        <li><a href="profilDonateur.jsp">Profil</a></li>
         <li><a href="mesDemandes.jsp">Mes Demandes</a></li>
         <li><a href="Donation.jsp">Faire Demande</a></li>
         <li>
