@@ -116,6 +116,60 @@ public class Donateur {
 	public String getEmail() {
 		return email;
 	}
+	public boolean isDernierDonDate() {
+		return dernierDonDate;
+	}
+	public void setDernierDonDate(boolean dernierDonDate) {
+		this.dernierDonDate = dernierDonDate;
+	}
+	public boolean isvIHsida() {
+		return vIHsida;
+	}
+	public void setvIHsida(boolean vIHsida) {
+		this.vIHsida = vIHsida;
+	}
+	public boolean isMaladieChronique() {
+		return maladieChronique;
+	}
+	public void setMaladieChronique(boolean maladieChronique) {
+		this.maladieChronique = maladieChronique;
+	}
+	public boolean isTatouage() {
+		return tatouage;
+	}
+	public void setTatouage(boolean tatouage) {
+		this.tatouage = tatouage;
+	}
+	public boolean isManqueDeFer() {
+		return manqueDeFer;
+	}
+	public void setManqueDeFer(boolean manqueDeFer) {
+		this.manqueDeFer = manqueDeFer;
+	}
+	public boolean isOperation4derniersMois() {
+		return operation4derniersMois;
+	}
+	public void setOperation4derniersMois(boolean operation4derniersMois) {
+		this.operation4derniersMois = operation4derniersMois;
+	}
+	public boolean isFièvreOuInfection() {
+		return fièvreOuInfection;
+	}
+	public void setFièvreOuInfection(boolean fièvreOuInfection) {
+		this.fièvreOuInfection = fièvreOuInfection;
+	}
+	public boolean isSoinsDentaires() {
+		return soinsDentaires;
+	}
+	public void setSoinsDentaires(boolean soinsDentaires) {
+		this.soinsDentaires = soinsDentaires;
+	}
+	public boolean isMédicamentTousLesjours() {
+		return médicamentTousLesjours;
+	}
+	public void setMédicamentTousLesjours(boolean médicamentTousLesjours) {
+		this.médicamentTousLesjours = médicamentTousLesjours;
+	}
 	public String getMotDePasse() {
 		return motDePasse;
 	}

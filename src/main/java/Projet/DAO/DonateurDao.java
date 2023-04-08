@@ -16,7 +16,7 @@ public class DonateurDao {
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "";
 
-	private static final String INSERT_DONATEUR_SQL = "INSERT INTO donateur (CIN, NomDonateur, PrenomDonateur, sexe, ville, groupage, DateDeNaissance, numTele, email, motDePasse, dernierDonDate, vIHsida, maladieChronique, tatouage, manqueDeFer, operation4derniersMois, fièvreOuInfection, soinsDentaires, médicamentTousLesjours) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, 1, 1, 1, 1, 1, 1, 1, 1);";
+	private static final String INSERT_DONATEUR_SQL = "INSERT INTO donateur (CIN, NomDonateur, PrenomDonateur, sexe, ville, groupage, DateDeNaissance, numTele, email, motDePasse) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 	public DonateurDao() {
 	}
