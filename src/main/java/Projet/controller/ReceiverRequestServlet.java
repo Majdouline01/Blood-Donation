@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,7 @@ import Projet.DAO.ReceiverRequestDao;
 import Projet.model.ReceveurDemande;
 
 @WebServlet("/Receveur/request")
+@MultipartConfig(maxFileSize = 1024 * 1024 * 5) // 5 MB
 public class ReceiverRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,22 +48,16 @@ public class ReceiverRequestServlet extends HttpServlet {
 		String hopital = req.getParameter("hopital");
 		String maladie = req.getParameter("maladie");
 		String quantiteSang = req.getParameter("quantiteSang");
-		String quantite = req.getParameter("hopital");
-		
-		// convert to byte
-		/*
-		Part filePart1 = req.getPart("ordonnance");
-		InputStream inputStream1 = null;
-		byte[] ordonnance = null;
-		if (filePart1 != null) {
-			inputStream1 = filePart1.getInputStream();
-			ByteArrayOutputStream output = new ByteArrayOutputStream();
-			byte[] buffer = new byte[1024];
-			for (int length = 0; (length = inputStream1.read(buffer)) > 0;) {
-				output.write(buffer, 0, length);
-			}
-			ordonnance = output.toByteArray();
-		}*/
+		String fileName = ""; 
+		InputStream fileData = null;
+        for (Part part : req.getParts()) {
+            if (part.getName().equals("ordonnance")) {
+                fileName = part.getSubmittedFileName();
+                fileData = part.getInputStream();
+                break;
+            }
+        }
+        
 
 		// retrieve email from session
 		HttpSession session = req.getSession();
@@ -98,6 +94,7 @@ public class ReceiverRequestServlet extends HttpServlet {
 		}
 		ReceveurDemande demande = new ReceveurDemande(cIN, hopital, date, maladie, Integer.parseInt(quantiteSang),
 				statut);
+		demande.setOrdonnance(fileData);
 		// insert the request to database
 		try {
 			ReceiverRequestDao receiverRequestDao = new ReceiverRequestDao();

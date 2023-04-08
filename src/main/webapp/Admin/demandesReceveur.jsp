@@ -38,6 +38,7 @@
 				<th>DATE</th>
 				<th>MALADIE</th>
 				<th>QUANTITE</th>
+				<th>ORDONNANCE</th>
 				<th>ACTION</th>
 			</tr>
 		</thead>
@@ -54,6 +55,7 @@
 				<td><%=myObject.getDate()%></td>
 				<td><%=myObject.getMaladie()%></td>
 				<td><%=myObject.getQuantiteSang() %></td>
+				<td><%=myObject.getOrdonnance() %></td>
 				</td>
 				<td>
 				

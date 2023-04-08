@@ -88,6 +88,8 @@ public class DonationDao {
 				demande.setDate(java.sql.Date.valueOf(rs.getString("Date")));
 				demande.setHopital(rs.getString("Hopital"));
 				demande.setMaladie(rs.getString("maladie"));
+				demande.setQuantiteSang(rs.getInt("QuantitéSang"));
+				demande.setOrdonnance(rs.getBinaryStream("Ordonance"));
 				demande.setStatut(rs.getInt("statut"));
 				list.add(demande);
 			}
@@ -115,6 +117,7 @@ public class DonationDao {
 				demande.setMaladie(rs.getString("maladie"));
 				demande.setStatut(rs.getInt("statut"));
 				demande.setQuantiteSang(rs.getInt("QuantitéSang"));
+				demande.setOrdonnance(rs.getBinaryStream("Ordonance"));
 				list.add(demande);
 			}
 		} catch (SQLException e) {

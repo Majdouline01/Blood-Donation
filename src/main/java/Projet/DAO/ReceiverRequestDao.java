@@ -15,13 +15,14 @@ public class ReceiverRequestDao {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
         
-            PreparedStatement ps = con.prepareStatement("INSERT INTO receveurdemande (CIN, Hopital, date, maladie, QuantitéSang, statut) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO receveurdemande (CIN, Hopital, date, maladie, QuantitéSang , Ordonance , statut) VALUES (?, ?, ?, ?, ?, ?,?)");
             ps.setString(1, demande.getcIN());
             ps.setString(2, demande.getHopital());
             ps.setDate(3, demande.getDate());
             ps.setString(4, demande.getMaladie());
             ps.setFloat(5, demande.getQuantiteSang());
-            ps.setInt(6, demande.getStatut());
+            ps.setBinaryStream(6, demande.getOrdonnance());
+            ps.setInt(7, demande.getStatut());
             ps.executeUpdate();
             con.close();
     }
