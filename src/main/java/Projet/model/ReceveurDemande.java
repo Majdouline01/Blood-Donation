@@ -13,6 +13,7 @@ public class ReceveurDemande {
 	String maladie;
 	int quantiteSang;
 	InputStream ordonnance;
+	byte[] ordonnanceFile;
 	int statut; //0 : demande done  //1 : demande approuved  //-1 : demande cancelled
 	public ReceveurDemande() {
 		
@@ -73,6 +74,12 @@ public class ReceveurDemande {
 	}
 	public void setStatut(int statut) {
 		this.statut = statut;
+	}
+	public byte[] getOrdonnanceFile() {
+		return ordonnanceFile;
+	}
+	public void setOrdonnanceFile(byte[] ordonnanceFile) {
+		this.ordonnanceFile = ordonnanceFile;
 	}
 	
 	

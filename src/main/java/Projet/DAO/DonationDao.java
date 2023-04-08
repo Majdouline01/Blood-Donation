@@ -1,5 +1,8 @@
 package Projet.DAO;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -99,7 +102,7 @@ public class DonationDao {
 		return list;
     } 
     //get all receiver demande with statut 0 //for ADMIN
-    public ArrayList<ReceveurDemande> getAllDemandesReceveur() {
+    public ArrayList<ReceveurDemande> getAllDemandesReceveur() throws IOException {
     	Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -118,6 +121,17 @@ public class DonationDao {
 				demande.setStatut(rs.getInt("statut"));
 				demande.setQuantiteSang(rs.getInt("QuantitéSang"));
 				demande.setOrdonnance(rs.getBinaryStream("Ordonance"));
+				
+				InputStream inputStream = rs.getBinaryStream("Ordonance");
+	            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+	            byte[] buffer = new byte[4096];
+	            int bytesRead = -1;
+	            while ((bytesRead = inputStream.read(buffer)) != -1) {
+	                outputStream.write(buffer, 0, bytesRead);
+	            }
+	            byte[] fileContent = outputStream.toByteArray();
+	            demande.setOrdonnanceFile(fileContent);
+				
 				list.add(demande);
 			}
 		} catch (SQLException e) {
