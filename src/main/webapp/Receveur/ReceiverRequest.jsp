@@ -39,7 +39,7 @@
 		</ul>
 	</nav>
 	<h1>Formulaire de demande de sang</h1>
-	<form id="myForm" action="request" method="post">
+	<form id="myForm" action="request" method="post" enctype="multipart/form-data">
 		<label for="date">Date à laquelle le sang est requis :</label><br>
 		<label for="date">Selectionner une date pour donner votre
 			sang:</label>
@@ -59,6 +59,7 @@
 		</select><br>
 		<br> <label for="quantiteSang">Quantité de sang:</label><br>
 		<input type="number" id="quantiteSang" name="quantiteSang"><br>
+		
 		<br> <label for="ordonnance">Votre ordonnance</label><br> <input
 			type="file" id="ordonnance" name="ordonnance"><br>
 		<br> <input type="submit" value="Valider">

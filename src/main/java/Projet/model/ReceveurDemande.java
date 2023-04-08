@@ -1,5 +1,6 @@
 package Projet.model;
 
+import java.io.InputStream;
 import java.sql.Date;
 
 import javax.servlet.http.Part;
@@ -11,7 +12,7 @@ public class ReceveurDemande {
 	Date date;
 	String maladie;
 	int quantiteSang;
-	byte[] ordonnance;
+	InputStream ordonnance;
 	int statut; //0 : demande done  //1 : demande approuved  //-1 : demande cancelled
 	public ReceveurDemande() {
 		
@@ -61,10 +62,10 @@ public class ReceveurDemande {
 	public void setQuantiteSang(int quantiteSang) {
 		this.quantiteSang = quantiteSang;
 	}
-	public byte[] getOrdonnance() {
+	public InputStream getOrdonnance() {
 		return ordonnance;
 	}
-	public void setOrdonnance(byte[] ordonnance) {
+	public void setOrdonnance(InputStream ordonnance) {
 		this.ordonnance = ordonnance;
 	}
 	public int getStatut() {
