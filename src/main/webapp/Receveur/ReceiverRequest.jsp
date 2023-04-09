@@ -57,8 +57,10 @@
 			<option value="Cancer">Cancer</option>
 			<option value="Autre">Autre</option>
 		</select><br>
-		<br> <label for="quantiteSang">Quantité de sang:</label><br>
-		<input type="number" id="quantiteSang" name="quantiteSang"><br>
+		
+		<label for="quantiteSang">Quantité de sang:</label><br>
+		<input type="range" id="quantiteSang" name="quantiteSang" min="1" max="10">
+			<div id="sliderValue"></div>
 		
 		<br> <label for="ordonnance">Votre ordonnance</label><br> <input
 			type="file" id="ordonnance" name="ordonnance"><br>
@@ -88,6 +90,48 @@
           }
         }).datepicker("widget").classList.add("datepicker-buttons");
       });
+      
+      var slider = document.getElementById("quantiteSang");
+      var output = document.getElementById("sliderValue");
+
+      // Display the default slider value
+      output.innerHTML = "Select Value";
+
+      // Update the slider value and text when the user moves the slider
+      slider.oninput = function() {
+        switch(parseInt(this.value)) {
+          case 1:
+            output.innerHTML = "500mL";
+            break;
+          case 2:
+            output.innerHTML = "1L";
+            break;
+          case 3:
+            output.innerHTML = "1.5L";
+            break;
+          case 4:
+            output.innerHTML = "2L";
+            break;
+          case 5:
+            output.innerHTML = "2.5L";
+            break;
+          case 6:
+            output.innerHTML = "3L";
+            break;
+          case 7:
+            output.innerHTML = "3.5L";
+            break;
+          case 8:
+            output.innerHTML = "4L";
+            break;
+          case 9:
+            output.innerHTML = "4.5L";
+            break;
+          case 10:
+            output.innerHTML = "5L";
+            break;
+        }
+      }
     </script>
       
 </body>

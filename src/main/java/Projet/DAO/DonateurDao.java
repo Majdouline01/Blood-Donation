@@ -49,7 +49,7 @@ public class DonateurDao {
 			preparedStatement.setString(8, donateur.getNumTele());
 			preparedStatement.setString(9, donateur.getEmail());
 			preparedStatement.setString(10, donateur.getMotDePasse());
-			
+
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -89,74 +89,140 @@ public class DonateurDao {
 		return null;
 
 	}
-	
+
 	public String getGroupageByCIN(String cin) {
-        String groupage = null;
-        Connection conn = null;
+		String groupage = null;
+		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		
-        try {
-        	conn = getConnection();
+
+		try {
+			conn = getConnection();
 			stmt = conn.prepareStatement("SELECT groupage FROM donateur WHERE CIN = ?");
 			stmt.setString(1, cin);
-            ResultSet resultSet = stmt.executeQuery();
-            
-            if (resultSet.next()) {
-                groupage = resultSet.getString("groupage");
-            }
-            
-            resultSet.close();
-            stmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        return groupage;
-    }
-	
+			ResultSet resultSet = stmt.executeQuery();
+
+			if (resultSet.next()) {
+				groupage = resultSet.getString("groupage");
+			}
+
+			resultSet.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return groupage;
+	}
+
 	public boolean updateDnateur(Donateur donateur) {
-        Connection conn = null;
+		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		
-		try {
-		    conn = getConnection();
-		    stmt = conn.prepareStatement("UPDATE donateur SET NomDonateur = ?, PrenomDonateur = ?, sexe = ?, ville = ?, numTele = ? WHERE CIN = ?");
-		    stmt.setString(1, donateur.getNomDonateur());
-		    stmt.setString(2, donateur.getPrenomDonateur());
-		    stmt.setString(3, donateur.getSexe());
-		    stmt.setString(4, donateur.getVille());
-		    stmt.setString(5, donateur.getNumTele());
-		    stmt.setString(6, donateur.getcIN());
-		    int rowsUpdated = stmt.executeUpdate();
 
-		    if (rowsUpdated == 0) {
-		        return false;
-		    }
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement(
+					"UPDATE donateur SET NomDonateur = ?, PrenomDonateur = ?, sexe = ?, ville = ?, numTele = ? WHERE CIN = ?");
+			stmt.setString(1, donateur.getNomDonateur());
+			stmt.setString(2, donateur.getPrenomDonateur());
+			stmt.setString(3, donateur.getSexe());
+			stmt.setString(4, donateur.getVille());
+			stmt.setString(5, donateur.getNumTele());
+			stmt.setString(6, donateur.getcIN());
+			int rowsUpdated = stmt.executeUpdate();
+
+			if (rowsUpdated == 0) {
+				return false;
+			}
 
 		} catch (SQLException e) {
-		    e.printStackTrace();
-		    return false;
+			e.printStackTrace();
+			return false;
 		} finally {
-		    try {
-		        if (rs != null) {
-		            rs.close();
-		        }
-		        if (stmt != null) {
-		            stmt.close();
-		        }
-		        if (conn != null) {
-		            conn.close();
-		        }
-		    } catch (SQLException ex) {
-		        ex.printStackTrace();
-		    }
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		return true;
-    }
-	
-	
+	}
+
+	public boolean changePwd(String cinDonateur, String oldPwd, String newPwd) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		
+		
+		if (oldPwd.equals(getPwd(cinDonateur))) {
+			System.out.print(true);
+			try {
+				conn = getConnection();
+				stmt = conn.prepareStatement(
+						"UPDATE donateur SET motDePasse = ? WHERE CIN = ?");
+				stmt.setString(1, newPwd);
+				stmt.setString(2, cinDonateur);
+				int rowsUpdated = stmt.executeUpdate();
+
+				if (rowsUpdated == 0) {
+					return false;
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			} finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (stmt != null) {
+						stmt.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+
+			return true;
+		}else return false;
+
+	}
+
+	public String getPwd(String cin) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement("SELECT motDePasse FROM donateur WHERE CIN = ?");
+			stmt.setString(1, cin);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				// Donator exists in the database
+				// Create a new Donator object with the data from the result set
+				//System.out.print(rs.getString("motDePasse"));
+				return rs.getString("motDePasse");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

@@ -34,43 +34,63 @@
 	</nav>
 	<c:set var="receveur" value="${sessionScope.receveur}" />
 	Welcome, ${receveur.prenomReceveur}!
-	
+<form id="updateForm" action="updateReceveur" method="post">	
 	<div class="container">
         <h1>Person Information</h1>
         <table class="table table-bordered">
-            <tbody>
                 <tr>
-                    <th>Name</th>
-                    <td>${receveur.nomReceveur}</td>
+                    <td>Name</td>
+                    <td id="nomReceveur"><span>${receveur.nomReceveur}</span></td>
                 </tr>
                 <tr>
-                    <th>Last Name</th>
-                    <td>${receveur.prenomReceveur}</td>
+                    <td>Last Name</td>
+                    <td id="prenomReceveur"><span>${receveur.prenomReceveur}</span></td>
                 </tr>
                 <tr>
-                    <th>Sex</th>
-                    <td>${receveur.sexe}</td>
+                    <td>City</td>
+                    <td id="ville"><span>${receveur.ville}</span></td>
                 </tr>
                 <tr>
-                    <th>City</th>
-                    <td>${receveur.ville}</td>
+                    <td>Phone Number</td>
+                    <td id="numTele"><span>${receveur.numTele}</span></td>
                 </tr>
                 <tr>
-                    <th>Phone Number</th>
-                    <td>${receveur.groupage}</td>
+                    <td>Birth Year</td>
+                    <td id="dateDeNaissance"><span>${receveur.dateDeNaissance}</span></td>
                 </tr>
-                <tr>
-                    <th>Birth Year</th>
-                    <td>${receveur.dateDeNaissance}</td>
-                </tr>
-                <tr>
-                    <th>Blood Groupage</th>
-                    <td>${receveur.email}</td>
-                </tr>
-            </tbody>
         </table>
     </div>
     
+     <button type="button" id="editProfileButton">Modifier le profil</button>
+    <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer les modifications</button>
+   </form> 
+   <button> <a href="changePWDR.jsp">Change Password</a> </button>
+    <script>
+  // Get elements
+  const editProfileButton = document.getElementById("editProfileButton");
+  const updateProfileButton = document.getElementById("updateProfileButton");
+  const tableRows = document.querySelectorAll("table tr");
+  
+  // Hide update button initially
+  updateProfileButton.style.display = "none";
+  
+  // Add click event listener to edit profile button
+  editProfileButton.addEventListener("click", function() {
+    // Toggle input fields and update button
+    for (let i = 0; i < tableRows.length; i++) {
+      const td = tableRows[i].getElementsByTagName("td")[1];
+      const span = td.getElementsByTagName("span")[0];
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = span.innerHTML;
+      input.name = td.id;
+      td.innerHTML = "";
+      td.appendChild(input);
+    }
+    editProfileButton.style.display = "none";
+    updateProfileButton.style.display = "block";
+  });
+</script>
 
 </body>
 </html>

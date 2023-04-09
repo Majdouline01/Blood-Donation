@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import Projet.model.Donateur;
 import Projet.model.Receveur;
 
 public class ReceveurDao {
@@ -85,7 +87,113 @@ public class ReceveurDao {
      return null;
 }
   
+  public boolean updateReceveur(Receveur receveur) {
+      Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+		    conn = getConnection();
+		    stmt = conn.prepareStatement("UPDATE receveur SET NomReceveur = ?, PrenomReceveur = ?, sexe = ?, ville = ?, numTele = ? WHERE CIN = ?");
+		    stmt.setString(1, receveur.getNomReceveur());
+		    stmt.setString(2, receveur.getPrenomReceveur());
+		    stmt.setString(3, receveur.getSexe());
+		    stmt.setString(4, receveur.getVille());
+		    stmt.setString(5, receveur.getNumTele());
+		    stmt.setString(6, receveur.getcIN());
+		    int rowsUpdated = stmt.executeUpdate();
+
+		    if (rowsUpdated == 0) {
+		        return false;
+		    }
+
+		} catch (SQLException e) {
+		    e.printStackTrace();
+		    return false;
+		} finally {
+		    try {
+		        if (rs != null) {
+		            rs.close();
+		        }
+		        if (stmt != null) {
+		            stmt.close();
+		        }
+		        if (conn != null) {
+		            conn.close();
+		        }
+		    } catch (SQLException ex) {
+		        ex.printStackTrace();
+		    }
+		}
+
+		return true;
+  }
   
+  public String getPwd(String cin) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			conn = getConnection();
+			stmt = conn.prepareStatement("SELECT motDePasse FROM receveur WHERE CIN = ?");
+			stmt.setString(1, cin);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				// Donator exists in the database
+				// Create a new Donator object with the data from the result set
+				//System.out.print(rs.getString("motDePasse"));
+				return rs.getString("motDePasse");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+  
+  public boolean changePwd(String cinReceveur, String oldPwd, String newPwd) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		
+		
+		if (oldPwd.equals(getPwd(cinReceveur))) {
+			System.out.print(true);
+			try {
+				conn = getConnection();
+				stmt = conn.prepareStatement(
+						"UPDATE receveur SET motDePasse = ? WHERE CIN = ?");
+				stmt.setString(1, newPwd);
+				stmt.setString(2, cinReceveur);
+				int rowsUpdated = stmt.executeUpdate();
+
+				if (rowsUpdated == 0) {
+					return false;
+				}
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return false;
+			} finally {
+				try {
+					if (rs != null) {
+						rs.close();
+					}
+					if (stmt != null) {
+						stmt.close();
+					}
+					if (conn != null) {
+						conn.close();
+					}
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+
+			return true;
+		}else return false;
+
+	}
   
 }
 
