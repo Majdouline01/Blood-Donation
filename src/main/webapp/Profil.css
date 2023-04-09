@@ -1,0 +1,147 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(112, 150, 174, 0.7));
+    background-size: cover;
+    background-position: center;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    z-index: 999;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  header .logo {
+    color: #fff;
+    font-size: 2rem;
+  }
+  
+  header nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 20px ;
+  }
+  
+  header nav ul li {
+    margin-left: 1rem;
+  }
+  header nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .button-area {
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  button {
+    width: 6rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+    margin-left: 40%;
+  }
+  
+  button:hover {
+    width: 5rem;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 2px solid #212020;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 16px 10px;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    
+  }
+  
+  
+  
+  i {
+    font-size:150%;
+    align-items: center;
+  }
+  .pswd{
+   width: 8rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+    margin-left: 40%;
+  }
+  a{
+  color:white;
+  appearance: none;
+  }

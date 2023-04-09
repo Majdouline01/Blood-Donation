@@ -15,43 +15,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Profil</title>
-    <link rel="stylesheet" type="text/css" href="../css.css">
-    <style>
-        /* CSS for the table */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" type="text/css" href="../Profil.css">
+   
 </head>
 <body>
+ <header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
 <nav>
     <ul>
-        <li><a href="profilDonateur.jsp">Profil</a></li>
+        <li><a href="profilDonateur.jsp" class="active">Profil</a></li>
         <li><a href="mesDemandes.jsp">Mes Demandes</a></li>
         <li><a href="Donation.jsp">Faire Demande</a></li>
         <li>
             <form action="test" method="post">
-                <a><button type="submit">Se déconnecter</button></a>
+                <a><i class='bx bx-log-out'></i></a>
             </form>
         </li>
     </ul>
 </nav>
+</header>
 <c:set var="donateur" value="${sessionScope.donateur}" />
-Welcome, ${donateur.prenomDonateur}!
 
-<h1>Profil</h1>
+
+
 <form id="updateForm" action="updateDonateur" method="post">
     <table>
         <tr>
@@ -83,10 +73,10 @@ Welcome, ${donateur.prenomDonateur}!
             <td id="ville"><span>${donateur.ville}</span></td>
         </tr>
     </table>
-    <button type="button" id="editProfileButton">Modifier le profil</button>
+    <button type="button" id="editProfileButton">Modifier</button>
     <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer les modifications</button>
 </form>
-	<button> <a href="changePWD.jsp">Change Password</a> </button>
+	<button class="pswd"> <a href="changePWD.jsp">Changer mot de passe</a> </button>
 	<script>
   // Get elements
   const editProfileButton = document.getElementById("editProfileButton");
