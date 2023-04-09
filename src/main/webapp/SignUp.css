@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+    
+}
+
+body {
+    
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(157, 111, 111, 0.7)), url('vecteezy_blood-donation-concept-human-holding-blood-sign-with-heart_12205416_722.jpg');
+    background-size: cover;
+    background-position: center;
+    font-size: 10px;
+
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 999;
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  header .logo {
+    color: #fff;
+    font-size: 2rem;
+  }
+  
+  header nav {
+    display: flex;
+  align-items: center;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  header nav ul li {
+    margin-left: 2rem;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  /* Dropdown menu styles */
+.dropdown {
+    position: relative;
+  }
+  
+  .dropdown-btn {
+    display: block;
+    padding: 0.5rem 2.5rem;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    background-color: #926f6f;
+    min-width: 160px;
+    padding: 0.5rem 0;
+    border-radius: 0.5rem;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.2s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #555;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+.container {
+    position: relative;
+    height: 700px;
+    flex-basis: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.form-wrap {
+    padding: 1rem 0.5rem;
+    position: relative;
+    height: auto;
+    width: 80%;
+    box-sizing: border-box;
+    transition: all 0.4s ease;
+    border: 1.5px solid rgb(228, 225, 225);
+    padding-left: 0%;
+    border-radius: 15px;
+    margin-left: 0px;
+    box-shadow: #212020;
+}
+
+.form-wrap h1 {
+    padding-bottom: 0.5rem;
+    position: relative;
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+form {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0%;
+}
+
+.input-area {
+    margin-top: 0.5rem;
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input-area input {
+    width: 50%;
+    height: 2rem;
+    color: #e6e5e8;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1rem;
+    outline: none;
+    background: rgba(230, 225, 225, 0.1);
+    padding: 0 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    box-shadow: #212020;
+  }
+  
+  .input-area input[type="radio"] {
+    display: inline-block;
+    width: 1%;
+    height: 1.4rem;
+    appearance: none;
+    border-radius: 150%;
+    border: 1.5px solid #fff;
+    background-color: transparent;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+  
+  .input-area input[type="radio"]:checked {
+    background-color: #fff;
+  }
+  
+  .input-area .radio-label {
+    color: rgb(192, 187, 187);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+ .input-area select {
+    width: 50%;
+    height: 2rem;
+    color: rgb(192, 187, 187);
+    font-size: 1rem;
+    border: 1px solid #fff;
+    border-radius: 1rem;
+    outline: none;
+    background: rgba(230, 225, 225, 0.1);
+    padding: 0 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    box-shadow: #212020;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.input-area label {
+    color: #fff;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    
+}
+input::placeholder, select::placeholder {
+    color: rgb(192, 187, 187);
+    
+}
+
+.input-area input:focus, .input-area select:focus {
+    box-shadow: 0 0 5px #212020;
+}
+
+input::placeholder {
+    color: rgb(192, 187, 187);
+}
+
+.input-area input:focus {
+    box-shadow: 0 0 5px #212020;
+}
+.input-area select option {
+    background-color: rgb(105, 70, 70);
+  color: #212020;
+  }
+  .input-area select option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color:#a5a5a5;
+    
+  }
+
+
+.button-area {
+    margin-top: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 6rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    width: 10%;
+    letter-spacing: 2px;
+    background: transparent;
+    border: 2px solid #212020;
+}
+
+.form-toggle-area {
+    margin-top: 2rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-toggle-area a {
+    color: #a5a5a5;
+}

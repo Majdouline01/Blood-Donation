@@ -8,63 +8,88 @@
 <link rel="stylesheet" type="text/css" href="../SignUp.css">
 </head>
 <body>
+<header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
 <nav>
 		<ul>
 			<li><a href="../index.jsp">Home</a></li>
 			<li><a href="../Main/about.jsp">About</a></li>
-			<li class="dropdown"><a href="#">Users</a>
+			<li class="dropdown"><a href="#">Utilisateurs</a>
 				<div class="dropdown-content">
 					<a href="signInDonateur.jsp">Donateur</a> 
 					<a href="../Receveur/SignInReceveur.jsp">Receveur</a> 
 					<a href="../Admin/signInAdmin.jsp">Admin</a>
 				</div></li>
-			<li><a href="#">Contact</a></li>
 		</ul>
 	</nav>
-<h1> Bonjour cher donateur, veuillez entrer les informations suivantes </h1>
-	<form action="s'inscrire" method="post">
-	<label for="text"> votre nom:</label>
-	<input type="text" id="nomDonateur" name="nomDonateur"required><br>
-	<br>
-	<label for="text">votre prenom</label>
-	<input type="text" id='prenomDonateur' name='prenomDonateur' required><br>
-	<br>
-	<label for="text">votre CIN:</label>
-	<input type="text" id='cIN' name='cIN' required><br>
-	<br>
-	<label for="text">votre sexe:</label> <br>
-	<input type="radio" id='sexe' name='sexe' value="Homme" required>Homme<br>
-	<input type="radio" id='sexe' name='sexe' value="Femme" required>Femme<br>
-	<br>
-	<label for="groupage">choisissez votre groupage</label>
-    <select id="groupage" name="groupage">
-    <option value="A+">A+</option>
-    <option value="A-">A-</option>
-    <option value="B+">B+</option>
-    <option value="B-">B-</option>
-    <option value="AB+">AB+</option>
-    <option value="AB-">AB-</option>
-    <option value="O+">O+</option>
-    <option value="O-">O-</option>
-    </select>
-	<br><br>
-	<label for="number">votre numéro de téléphone:</label>
-	<input type="number" id='numTele' name='numTele' required><br>
-	<br>
-	<label for="text">votre ville:</label>
-	<input type="text" id='ville' name='ville' required><br>
-	<br>
-	<label for="date">votre date de naissance:</label>
-	<input type="date" id='dateDeNaissance' name='dateDeNaissance' required><br>	
-	<br>
-	<label for="password">votre mot de passe:</label>
-	<input type="password" id="motDePasse" name="motDePasse" required><br>
-	<br>
-	<label for="email">votre email:</label>
-	<input type="email" id="email" name="email" required><br>
-	<br>
-	<input type="submit" value="s'inscrire">
-	</form>
+	</header>
+ <div class="container">
+        <div class="form-wrap">
+          <h1>Formulaire d'inscription</h1>
+          <form action="s'inscrire" method="post">
+            <div class="input-area">
+              <label for="text"></label>
+              <input type="text" name="nomDonateur" id="nomDonateur" placeholder="Votre nom" required>
+            </div>
+            <div class="input-area">
+              <label for="text"></label>
+              <input type="text" name="prenomDonateur" id="prenomDonateur" placeholder="Votre prénom" required>
+            </div>
+            <div class="input-area">
+              <label for="text"></label>
+              <input type="text" name="cIN" id="cIN" placeholder="Votre CIN" required>
+            </div>
+            <div class="input-area">
+              <label for="groupage"></label>
+              <select name="groupage" id="groupage" required>
+                <option value="">Votre groupe sanguin</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+              </select>
+            </div>
+            <div class="input-area">
+                <label for="text"></label> 
+              <div class="input-area">
+	            <input type="radio" id='sexe' name='sexe' value="Homme" required>
+                <span class="radio-label">Homme</span>
+	            <input type="radio" id='sexe' name='sexe' value="Femme" required>
+                <span class="radio-label">Femme</span>
+              </div>
+            </div>
+            <div class="input-area">
+              <label for="number"></label>
+              <input type="number" name="numTele" id="numTele" placeholder="Numéro de téléphone" required>
+            </div>
+            <div class="input-area">
+             <label for="text"></label>
+             <input type="text" name="ville" id="ville" placeholder="Votre ville" required>
+            </div>
+            <div class="input-area">
+                <label for="date"></label>
+                <input type="date" name="dateDeNaissance" id="dateDeNaissance" placeholder="Date de naissance " required>
+            </div>
+            <div class="input-area">
+                <label for="password"></label>
+                <input type="password" name="motDePasse" id="motDePasse" placeholder="MotDePasse" required>
+             </div>
+            <div class="input-area">
+                <label for="email"></label>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+             </div>
+            <div class="button-area">
+              <button type="submit">S'inscrire</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
 </body>
 </html>
