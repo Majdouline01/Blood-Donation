@@ -38,7 +38,7 @@ public class SigninDonatorServlet extends HttpServlet {
 			 listDemandes = donationDao.getDemandes(donateur.getcIN());
 		     HttpSession session = req.getSession();
 		     session.setAttribute("donateur", donateur);
-		     session.setAttribute("email", email);
+		     //session.setAttribute("email", email);
 		     session.setAttribute("listDemandes", listDemandes);
 		     res.sendRedirect("profilDonateur.jsp");
 		 } else {

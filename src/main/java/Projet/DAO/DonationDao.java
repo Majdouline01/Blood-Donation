@@ -9,8 +9,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import Projet.model.Demandes;
 import Projet.model.Donateur;
@@ -19,26 +21,69 @@ import Projet.model.ReceveurDemande;
 public class DonationDao {
 
 	
-	
+	public static boolean isSecondDateAtLeast58DaysLater(java.sql.Date dernierDateDon, java.sql.Date selectedDate) {
+	    try {
+	    	if (dernierDateDon == null) return true; //test demandes
+	        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	        Calendar calendar = Calendar.getInstance();
+	        calendar.setTime(dernierDateDon);
+	        calendar.add(Calendar.DATE, 58);
+	        java.util.Date utilDate = calendar.getTime();
+	        Date minimumDate = new java.sql.Date(utilDate.getTime());
+	        
+	        return selectedDate.after(minimumDate) || selectedDate.equals(minimumDate);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        System.out.print("test");
+	        return false;
+	    }
+	}
+
 	 // Static method to check if the date is available for donation
-    public static boolean isDateAvailable(Date dateDemande) throws SQLException, ClassNotFoundException {
-        boolean isAvailable = true;
+    public static boolean isDateAvailable(Date dateDemande, String cin) throws SQLException, ClassNotFoundException {
+        boolean isAvailable = false;
+        
+        
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
-        PreparedStatement ps = con.prepareStatement("SELECT * FROM demandes WHERE dateDemande = ?");
-        ps.setDate(1, dateDemande);
+        PreparedStatement ps = con.prepareStatement("SELECT dernierDateDon FROM donateur WHERE cin = ?");
+        ps.setString(1, cin);
+        
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
-            isAvailable = false;
+        	Date dernierDateDon = rs.getDate("dernierDateDon");
+        	
+        	if(isSecondDateAtLeast58DaysLater(dernierDateDon,dateDemande)) {
+        		if(doesDonateurHasRequest0(cin))
+        			return false;
+        		else 
+        			return true;
+        	}else
+        		return false;
         }
         con.close();
         return isAvailable;
+    }
+    
+    public static boolean doesDonateurHasRequest0(String cin) throws ClassNotFoundException, SQLException {
+    	ResultSet rs = null;
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
+        PreparedStatement ps = con.prepareStatement("SELECT * FROM demandes WHERE CIN = ? AND isValidated = ?");
+        ps.setString(1, cin);
+        ps.setInt(2, 0);
+        rs = ps.executeQuery();
+        
+        if(rs.next())
+        	return true;
+        
+        return false;
     }
     //insert the available date in database 
     public static boolean insertDate(Demandes demande) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
-        if (isDateAvailable(demande.getDateDemande())) {
+        if (isDateAvailable(demande.getDateDemande(),demande.getCIN())) {
             PreparedStatement ps = con.prepareStatement("INSERT INTO demandes (CIN, dateDemande,type) VALUES (?, ?, ?)");
             ps.setString(1, demande.getCIN());
             ps.setDate(2, demande.getDateDemande());
@@ -109,7 +154,7 @@ public class DonationDao {
 		ArrayList<ReceveurDemande> list = new ArrayList<ReceveurDemande>();
 		try {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
-			stmt = conn.prepareStatement("SELECT * FROM receveurdemande WHERE statut = 0");
+			stmt = conn.prepareStatement("SELECT * FROM receveurdemande WHERE statut = 0 ORDER BY Date");
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				ReceveurDemande demande = new ReceveurDemande();

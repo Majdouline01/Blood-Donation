@@ -85,9 +85,9 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
       if (xhr.status === 200) {
         // Handle the response from the server
         if (xhr.responseText === "success") {
-          showNotification("Form submitted successfully");
+          showNotification("Vous pouvez donner votre dans cette date");
         } else {
-        	showError("Date existed");
+        	showError("Vous ne pouvez pas donner votre sang dans cette Date");
         }
       } else {
     	  showError("An error occurred while submitting the form");
