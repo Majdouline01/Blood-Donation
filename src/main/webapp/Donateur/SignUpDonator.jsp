@@ -14,9 +14,9 @@
         </div>
 <nav>
 		<ul>
-			<li><a href="../index.jsp">Home</a></li>
-			<li><a href="../Main/about.jsp">About</a></li>
-			<li class="dropdown"><a href="#">Utilisateurs</a>
+			<li><a href="../index.jsp">Accuiel</a></li>
+			<li><a href="../Main/about.jsp">A propos</a></li>
+			<li class="dropdown"><a href="#" class="active">Utilisateurs</a>
 				<div class="dropdown-content">
 					<a href="signInDonateur.jsp">Donateur</a> 
 					<a href="../Receveur/SignInReceveur.jsp">Receveur</a> 
@@ -27,7 +27,7 @@
 	</header>
  <div class="container">
         <div class="form-wrap">
-          <h1>Formulaire d'inscription</h1>
+          <h1>Formulaire d'inscription donateur</h1>
           <form action="s'inscrire" method="post">
             <div class="input-area">
               <label for="text"></label>
@@ -88,8 +88,10 @@
               <button type="submit">S'inscrire</button>
             </div>
           </form>
+          </div>			
         </div>
-      </div>
-
+        <div class="form-toggle-area">
+					<p>Vous avez déja un <a href="signInDonateur.jsp">connexion</a></p>
+		</div>
 </body>
 </html>

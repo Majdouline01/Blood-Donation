@@ -22,11 +22,10 @@
       <p>DONATE</p>
     </div>
 	<nav>
-		
 		<ul class="nav-links">
-			<li><a href="../index.jsp">Home</a></li>
-			<li><a href="../Main/about.jsp">About</a></li>
-			<li class="dropdown"><a href="#">Users</a>
+			<li><a href="../index.jsp">Acceuil</a></li>
+			<li><a href="../Main/about.jsp">A propos</a></li>
+			<li class="dropdown"><a href="#" class="active">Utilisateurs</a>
 				<div class="dropdown-content">
 					<a href="../Donateur/signInDonateur.jsp">Donateur</a> <a
 						href="SignInReceveur.jsp">Receveur</a> <a
@@ -38,8 +37,7 @@
 	<div class="container">
       <div class="login-wrap">
         <div class="title">
-          <h1>Connexion au compte</h1>
-
+          <h1>Infos receveur</h1>
         </div>
         <form action="Connexion" method="post">
           <div class="input-area">
@@ -50,26 +48,16 @@
             <input type="password" id="motDePasse" name="motDePasse"  placeholder="Mot de passe" required>
             <label for="password" ></label>
           </div>
-	
                   <c:if test="${error == true}">
-   								<span class="text-danger">Invalid username or password</span>
-   								<%
-    								session.removeAttribute("error");
-								%>
-							</c:if>
+   		<span class="text-danger">Mot de passe ou email incorrectes</span>
+   		<%session.removeAttribute("error");%></c:if>
 		<div class="button-area">
             <button class="login-button">Connexion</button>
           </div>
           <div class="form-toggle-area">
-            <p>Vous n'avez pas de compte <a href="SignUpReceiver.jsp">s'inscrire</a>.</p>
-
+            <p>Vous n'avez pas de compte <a href="SignUpReceiver.jsp">s'inscrire</a></p>
           </div>
-
-
         </form>
-
       </div>
-
-    </div>
-                
+    </div>               
 </html>

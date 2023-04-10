@@ -8,63 +8,64 @@
 <title>Demande de sang</title>
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<style>
-.datepicker-buttons .ui-state-default {
-	border: none;
-	background-color: #fff;
-	color: #000;
-	padding: 0.25em 0.5em;
-	margin: 0.25em;
-	border-radius: 0.25em;
-	cursor: pointer;
-}
-
-.datepicker-buttons .ui-state-disabled {
-	color: #999;
-	cursor: default;
-}
-</style>
+	<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" type="text/css" href="../faire2.css">
 </head>
 <body>
+<header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
 	<nav>
 		<ul>
 			<li><a href="ReceiverHomePage.jsp">Profil</a></li>
 			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
-			<li><a href="ReceiverRequest.jsp">Faire Demande</a></li>
+			<li><a href="ReceiverRequest.jsp" class="active">Faire Demande</a></li>
 			<li>
 				<form action="logout" method="post">
-					<a><button type="submit">Se déconnecter</button></a>
+					<a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>
 	</nav>
-	<h1>Formulaire de demande de sang</h1>
+	</header>
+	<div class="container">
+	<div class="form-wrap">
 	<form id="myForm" action="request" method="post" enctype="multipart/form-data">
+		<div class="input-area">
 		<label for="date">Date à laquelle le sang est requis :</label><br>
-		<label for="date">Selectionner une date pour donner votre
-			sang:</label>
 		<!-- <input type="date" id="date" name="date" required> -->
-		<br> <br> <input type="text" id="date" name="date" required>
+		 <input type="text" id="date" name="date" required>
+		 </div>
 		<div id="datepicker"></div>
-		<label for="hopital">Hôpital:</label><br> <input type="text"
-			id="hopital" name="hopital" required><br>
-		<br> <label for="maladie">Sélectionnez votre cas
+		<div class="input-area">
+		<label for="hopital">Hôpital:</label>
+		 <input type="text"id="hopital" name="hopital" required>
+		 </div>
+		 <div class="input-area" >
+		<label for="maladie">Sélectionnez votre cas
 			d'uergent :</label><br> <select id="maladie" name="maladie" required>
 			<option value="">Select</option>
-			<option value="un accident de route">un accident de route</option>
+			<option value="Des maladies chroniques">Des maladies chroniques</option>
 			<option value="Des maladies du sang">Des maladies du sang</option>
 			<option value="Des maladies immunitaire">Des maladies immunitaire</option>
 			<option value="Cancer">Cancer</option>
+			<option value="Chirurgie ">Chirurgie </option>
+			<option value="raison cosmétique">raison cosmétique</option>
 			<option value="Autre">Autre</option>
-		</select><br>
-		
-		<label for="quantiteSang">Quantité de sang:</label><br>
+		</select>
+		</div>
+		<div>
+		<label for="quantiteSang">Quantité de sang:</label>
 		<input type="range" id="quantiteSang" name="quantiteSang" min="1" max="10">
-			<div id="sliderValue"></div>
-		
-		<br> <label for="ordonnance">Votre ordonnance</label><br> <input
-			type="file" id="ordonnance" name="ordonnance"><br>
-		<br> <input type="submit" value="Valider">
+		</div>
+		<div id="sliderValue"></div>
+		<div>
+		<label for="ordonnance">Votre ordonnance</label>
+		 <input type="file" id="ordonnance" name="ordonnance">
+		 </div>
+		 <button type="submit" value="Valider"></button>
 	</form>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>

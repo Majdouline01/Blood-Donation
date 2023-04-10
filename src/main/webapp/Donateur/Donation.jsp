@@ -9,41 +9,48 @@
 <title>Demande de don</title>
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="../css.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
+	<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" type="text/css" href="../faire.css">
 </head>
 <body>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 		crossorigin="anonymous"></script>
+		<header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
 	<nav>
 		<ul>
 			<li><a href="profilDonateur.jsp">Profil</a></li>
 			<li><a href="mesDemandes.jsp">Mes Demandes</a></li>
-			<li><a href="#">Faire Demande</a></li>
+			<li><a href="Donation.jsp" class="active">Faire Demande</a></li>
 			<li>
 				<form action="test" method="post">
-					<a><button type="submit">Se déconnecter</button></a>
+					<a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>
 	</nav>
+	</header>
 	<c:set var="donateur" value="${sessionScope.donateur}" />
-	Bienvenue, ${donateur.prenomDonateur}!
-	<h1>Demande de don</h1>
+	
 	<form id="myForm" action="donate" method="post">
-		<label for="date">Selectionner une date pour donner votre
+		<label class="titre" for="date">Selectionner une date pour donner votre
 			sang:</label>
+			<div id="datepicker"></div>
 		<!-- <input type="date" id="date" name="date" required> -->
 		<br> <br> <input style="display:none;" type="text" id="date" name="date" required>
-		<input type="Submit" value="valider">
+		<button type="Submit" value="valider">valider</button>
 	</form>
-	<div id="datepicker"></div>
+	
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
@@ -123,21 +130,6 @@ function showError(message){
       //------------------------------------
 
     </script>
-	<style>
-.datepicker-buttons .ui-state-default {
-	border: none;
-	background-color: #fff;
-	color: #000;
-	padding: 0.25em 0.5em;
-	margin: 0.25em;
-	border-radius: 0.25em;
-	cursor: pointer;
-}
 
-.datepicker-buttons .ui-state-disabled {
-	color: #999;
-	cursor: default;
-}
-</style>
 </body>
 </html>

@@ -17,15 +17,15 @@
     background-position: center;
   }
   
- header {
+  header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0rem 1rem;
     z-index: 999;
     background-color: transparent;
     transition: all 0.3s ease;
@@ -38,17 +38,22 @@
   
   header nav {
     display: flex;
-  align-items: center;
+    align-items: center;
   }
   
   header nav ul {
     list-style: none;
     display: flex;
     align-items: center;
+    font-size: 20px;
   }
   
   header nav ul li {
-    margin-left: 2rem;
+    margin-left: 1rem;
+  }
+  
+  header nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
   }
   
   header nav ul li a {
@@ -62,14 +67,35 @@
   
   header nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
   }
-  i {
-    font-size:150%;
-    align-items: center;
+  header nav ul li a.log-out :hover {
+    background-color: transparent;
   }
-   button {
-    width: 4rem;
+  
+  .datepicker-buttons .ui-state-default {
+    border: none;
+    background-color: #fff;
+    color: #000;
+    padding: 0.25em 0.5em;
+    margin: 0.25em;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+  
+  .datepicker-buttons .ui-state-disabled {
+    color: #999;
+    cursor: default;
+  }
+  
+  .ui-datepicker {
+    background-color: transparent;
+    border: none;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  button {
+    width: 6rem;
     height: 3rem;
     border: none;
     outline: none;
@@ -84,6 +110,29 @@
     display: block;
   margin: 0 auto;
   }
-   header nav ul li a.active {
-     background-color: rgba(255, 255, 255, 0.2);
+  
+  button:hover {
+    width: 6rem;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 2px solid #212020;
+  }
+  
+ .titre {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .ui-datepicker-calendar {
+    text-align: center;
+    margin: 0 auto;
+   
+  }
+  i {
+    font-size:150%;
+    align-items: center;
+  }
+  .logout:hover{
+   background: transparent;
+    border: 2px solid #212020;
   }

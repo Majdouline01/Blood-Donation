@@ -2,30 +2,37 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Projet.model.ReceveurDemande" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+ <link rel="stylesheet" type="text/css" href="../demande.css">
 </head>
 <body>
+<header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
 	<nav>
 		<ul>
 			<li><a href="ReceiverHomePage.jsp">Profil</a></li>
-			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
+			<li><a href="MesDemandesReceveur.jsp" class="active">Mes Demandes</a></li>
 			<li><a href="ReceiverRequest.jsp">Faire Demande</a></li>
 			<li>
 				<form action="logout" method="post">
-					<a><button type="submit">Se déconnecter</button></a>
+					<a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>
 	</nav>
+	</header>
 	<c:set var="receveur" value="${sessionScope.receveur}" />
 	<c:set var="listDemandes" value="${sessionScope.listDemandes}" />
-	Welcome, ${receveur.prenomReceveur}!
-	
 	<%
 	ArrayList<ReceveurDemande> myList = (ArrayList<ReceveurDemande>) session.getAttribute("listDemandes");
 	%>

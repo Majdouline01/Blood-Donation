@@ -8,79 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Ubuntu', sans-serif;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(112, 150, 174, 0.7));
-    background-size: cover;
-    background-position: center;
-  }
-  
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2.5rem;
-    z-index: 999;
-    background-color: transparent;
-    transition: all 0.3s ease;
-  }
-  
-  header .logo {
-    color: #fff;
-    font-size: 2rem;
-  }
-  
-  header nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  header nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    font-size: 20px ;
-  }
-  
-  header nav ul li {
-    margin-left: 1rem;
-  }
-  header nav ul li a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    padding: 0.5rem 2.5rem;
-    border-radius: 0.5rem;
-  }
-  
-  header nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  i {
-    font-size:150%;
-    align-items: center;
-  }
-</style>
+
 <meta charset="UTF-8">
 <title>Mes demandes</title>
  
@@ -88,6 +16,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+   <link rel="stylesheet" type="text/css" href="../demande.css">
   
 </head>
 <body>
@@ -99,11 +28,11 @@
 	<nav>
 		<ul>
 			<li><a href="profilDonateur.jsp">Profil</a></li>
-			<li><a href="mesDemandes.jsp">Mes Demandes</a></li>
+			<li><a href="mesDemandes.jsp" class="active">Mes Demandes</a></li>
 			<li><a href="Donation.jsp">Faire Demande</a></li>
 			<li>
 				<form action="test" method="post">
-					<a><i class='bx bx-log-out'></i></a>
+				<a><i class='bx bx-log-out'></i></a>
 				</form>
 			</li>
 		</ul>

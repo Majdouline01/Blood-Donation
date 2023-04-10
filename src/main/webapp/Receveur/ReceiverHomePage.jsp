@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
     integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYlF/xIch/wEp/0RrjyDWSAzUxt2I7MhJ" 
     crossorigin="anonymous">
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" type="text/css" href="../Profil.css">
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
@@ -20,49 +23,52 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
     integrity="sha384-Wsk5IB+IQRgdeLhBE1a5G39J36ysw7jKASxLBiAdGNEFgyeLyKp0Ff5q5tocn+i6" 
     crossorigin="anonymous"></script>
+    <header>
+    <div class="logo">
+          <p>DONATE</p>
+        </div>
 	<nav>
 		<ul>
-			<li><a href="ReceiverHomePage.jsp">Profil</a></li>
+			<li><a href="ReceiverHomePage.jsp" class="active">Profil</a></li>
 			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
 			<li><a href="ReceiverRequest.jsp">Faire Demande</a></li>
 			<li>
 				<form action="logout" method="post">
-					<a><button type="submit">Se déconnecter</button></a>
+					<a><button type="submit"><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>
 	</nav>
+	</header>
 	<c:set var="receveur" value="${sessionScope.receveur}" />
-	Welcome, ${receveur.prenomReceveur}!
 <form id="updateForm" action="updateReceveur" method="post">	
 	<div class="container">
-        <h1>Person Information</h1>
         <table class="table table-bordered">
                 <tr>
-                    <td>Name</td>
+                    <td>Nom</td>
                     <td id="nomReceveur"><span>${receveur.nomReceveur}</span></td>
                 </tr>
                 <tr>
-                    <td>Last Name</td>
+                    <td>Prénom</td>
                     <td id="prenomReceveur"><span>${receveur.prenomReceveur}</span></td>
                 </tr>
                 <tr>
-                    <td>City</td>
+                    <td>Ville</td>
                     <td id="ville"><span>${receveur.ville}</span></td>
                 </tr>
                 <tr>
-                    <td>Phone Number</td>
+                    <td>Numéro de télé</td>
                     <td id="numTele"><span>${receveur.numTele}</span></td>
                 </tr>
                 <tr>
-                    <td>Birth Year</td>
+                    <td>Date de naissance</td>
                     <td id="dateDeNaissance"><span>${receveur.dateDeNaissance}</span></td>
                 </tr>
         </table>
     </div>
     
-     <button type="button" id="editProfileButton">Modifier le profil</button>
-    <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer les modifications</button>
+     <button type="button" id="editProfileButton">Modifier</button>
+    <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer</button>
    </form> 
    <button> <a href="changePWDR.jsp">Change Password</a> </button>
     <script>

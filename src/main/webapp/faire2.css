@@ -1,31 +1,31 @@
 @charset "UTF-8";
-
 * {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
-    box-sizing: border-box;
-    
-}
-
-body {
-    
-    height: 100vh;
-    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(157, 111, 111, 0.7)), url('vecteezy_blood-donation-concept-human-holding-blood-sign-with-heart_12205416_722.jpg');
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(112, 150, 174, 0.7));
     background-size: cover;
     background-position: center;
-    font-size: 10px;
-
-}
-header {
+  }
+  
+  header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     z-index: 999;
     background-color: transparent;
     transition: all 0.3s ease;
@@ -38,19 +38,22 @@ header {
   
   header nav {
     display: flex;
-  align-items: center;
+    align-items: center;
   }
   
   header nav ul {
     list-style: none;
     display: flex;
     align-items: center;
+    font-size: 20px ;
   }
   
   header nav ul li {
-    margin-left: 2rem;
+    margin-left: 1rem;
   }
-  
+  header nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
   header nav ul li a {
     color: #fff;
     text-decoration: none;
@@ -63,50 +66,21 @@ header {
   header nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
-   header nav ul li a.active {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  /* Dropdown menu styles */
-.dropdown {
-    position: relative;
-  }
   
-  .dropdown-btn {
-    display: block;
-    padding: 0.5rem 2.5rem;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    
-  }
-  
-  .dropdown-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    display: none;
-    background-color: #926f6f;
-    min-width: 160px;
-    padding: 0.5rem 0;
-    border-radius: 0.5rem;
-  }
-  
-  .dropdown-content a {
-    display: block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #fff;
-    transition: background-color 0.2s;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #555;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+.datepicker-buttons .ui-state-default {
+	border: none;
+	background-color: #fff;
+	color: #000;
+	padding: 0.25em 0.5em;
+	margin: 0.25em;
+	border-radius: 0.25em;
+	cursor: pointer;
+}
+
+.datepicker-buttons .ui-state-disabled {
+	color: #999;
+	cursor: default;
+}
 .container {
     position: relative;
     height: 700px;
@@ -171,29 +145,7 @@ form {
     transition: all 0.3s ease;
     box-shadow: #212020;
   }
-  
-  .input-area input[type="radio"] {
-    display: inline-block;
-    width: 1%;
-    height: 1.4rem;
-    appearance: none;
-    border-radius: 150%;
-    border: 1.5px solid #fff;
-    background-color: transparent;
-    margin-left: 20px;
-    margin-right: 10px;
-  }
-  
-  .input-area input[type="radio"]:checked {
-    background-color: #fff;
-  }
-  
-  .input-area .radio-label {
-    color: rgb(192, 187, 187);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
- .input-area select {
+  .input-area select {
     width: 50%;
     height: 2rem;
     color: rgb(192, 187, 187);
@@ -270,20 +222,4 @@ button:hover {
     background: transparent;
     border: 2px solid #212020;
 }
-
-.form-toggle-area { 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding-left:0px;
-	padding-bottom:0px;
-	width:100%;
-   
-}
-p{
-	 padding-top:10px;
-}
-.form-toggle-area a {
-   color: rgb(100, 63, 64)
-}
+  

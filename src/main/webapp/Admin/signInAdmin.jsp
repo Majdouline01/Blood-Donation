@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin's login page</title>
+<title>Page de connexion</title>
 <link rel="stylesheet"
 	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 		<ul class="nav-links">
 			<li><a href="../index.jsp">Home</a></li>
 			<li><a href="../Main/about.jsp">About</a></li>
-			<li class="dropdown"><a href="#">Users</a>
+			<li class="dropdown"><a href="#" class="active">Utilisateurs</a>
 				<div class="dropdown-content">
 					<a href="../Donateur/signInDonateur.jsp">Donateur</a> 
 					<a href="../Receveur/SignInReceveur.jsp">Receveur</a> 
@@ -32,7 +32,7 @@
 	 <div class="container">
       <div class="login-wrap">
         <div class="title">
-          <h1>Connexion au compte</h1>
+          <h1>Infos Admin</h1>
 
         </div>
         <form action="loginAdmin" method="post">
@@ -43,33 +43,17 @@
           <div class="input-area">
             <input type="password" id="motDePasse" name="motDePasse"  placeholder="Mot de passe" required>
             <label for="password" ></label>
-          </div>
-	
+          </div>	
 		<c:if test="${error == true}">
-   								<span class="text-danger">Invalid username or password</span>
-   								<%
-    								session.removeAttribute("error");
-								%>
-							</c:if>
+   		<span class="text-danger">Mot de passe ou email incorrectes</span>
+   		<%session.removeAttribute("error");%>
+		</c:if>
 		<div class="button-area">
             <button class="login-button">Connexion</button>
           </div>
-          <div class="form-toggle-area">
-            <p>Vous n'avez pas de compte <a href="test.jsp">s'inscrire</a>.</p>
-
-          </div>
-
-
+          
         </form>
-
       </div>
-
     </div>
-							
-	
 </body>
 </html>
-
-<!--test az el arab-->
-<!--test reply-->
-<!--test az el arab-->

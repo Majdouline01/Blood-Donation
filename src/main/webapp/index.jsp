@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="./css.css">
+<link rel="stylesheet" type="text/css" href="./main.css">
 
 <link rel="stylesheet"
 	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -16,13 +16,14 @@
 	rel="stylesheet">
 </head>
 <body>
+<header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
 <nav>
-	<div>
-		<a href="#" class="logo"><i class='bx bx-donate-blood'></i><span>Donate</span></a>
-	</div>
 
 	<ul class="nav-links">
-		<li><a href="index.jsp">Accueil</a></li>
+		<li><a href="index.jsp" class="active">Accueil</a></li>
 		<li><a href="Main/about.jsp">à propos</a></li>
 		<li class="dropdown"><a href="#">Utilisateurs</a>
 			<div class="dropdown-content">
@@ -33,5 +34,6 @@
 			</li>
 	</ul>
 	</nav>
+	</header>
 </body>
 </html>

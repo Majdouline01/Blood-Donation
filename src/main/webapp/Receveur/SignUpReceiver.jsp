@@ -17,7 +17,7 @@
           <li><a href="../index.jsp">Accueil</a></li>
                 <li><a href="../Main/about.jsp">A propos</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-btn">Utilisateurs</a>
+            <a href="#" class="active">Utilisateurs</a>
             <div class="dropdown-content">
               <a href="signInDonateur.jsp">Donateur</a>
               <a href="../Receveur/SignInReceveur.jsp">Receveur</a>
@@ -29,7 +29,7 @@
       </header>
 	<div class="container">
         <div class="form-wrap">
-          <h1>Formulaire d'inscription</h1>
+          <h1>Formulaire d'inscription receveur</h1>
           <form action="S'inscrire" method="post">
             <div class="input-area">
               <label for="text"></label>
@@ -92,6 +92,9 @@
           </form>
         </div>
       </div>
+      <div class="form-toggle-area">
+					<p>Vous avez déja un <a href="SignInReceveur.jsp">connexion</a></p>
+		</div>
 
 </body>
 </html>
