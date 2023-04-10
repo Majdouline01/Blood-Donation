@@ -35,7 +35,7 @@ public class ChangeReceveurPwdServlet extends HttpServlet {
 		Receveur receveur =  (Receveur) session.getAttribute("receveur");
 		
 		ReceveurDao receveurDao = new ReceveurDao();
-		
+		boolean error = false;
 		
 		if(receveurDao.changePwd(receveur.getcIN(), oldPwd, newPwd))
 		{
@@ -52,8 +52,13 @@ public class ChangeReceveurPwdServlet extends HttpServlet {
 			    // Handle the exception
 			    e.printStackTrace();
 			}
-		}else 
-			res.sendRedirect("ReceiverHomePage.jsp");
+		}else {
+			error = true;
+			session = req.getSession();
+			 session.setAttribute("error", error);
+			res.sendRedirect("changePWDR.jsp");
+		}
+			
 		
 		
 	}

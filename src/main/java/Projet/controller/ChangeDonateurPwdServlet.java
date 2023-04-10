@@ -35,7 +35,7 @@ public class ChangeDonateurPwdServlet extends HttpServlet {
 		Donateur donateur =  (Donateur) session.getAttribute("donateur");
 		
 		DonateurDao donateurDao = new DonateurDao();
-		
+		boolean error = false;
 		
 		if(donateurDao.changePwd(donateur.getcIN(), oldPwd, newPwd))
 		{
@@ -52,8 +52,13 @@ public class ChangeDonateurPwdServlet extends HttpServlet {
 			    // Handle the exception
 			    e.printStackTrace();
 			}
-		}else 
-			res.sendRedirect("profilDonateur.jsp");
+		}else {
+			error = true;
+			session = req.getSession();
+			 session.setAttribute("error", error);
+				res.sendRedirect("changePWD.jsp");
+		}
+			
 		
 		
 	}
