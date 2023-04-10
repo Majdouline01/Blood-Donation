@@ -19,7 +19,6 @@
 		ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
 		 listDemandes = donationDao.getDemandesReceveur(receveur.getcIN());
 		 session.setAttribute("listDemandes", listDemandes);
-
    }
 %>
 <!DOCTYPE html>

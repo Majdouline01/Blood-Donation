@@ -15,8 +15,7 @@ public class ReceveurDemande {
 	InputStream ordonnance;
 	byte[] ordonnanceFile;
 	int statut; //0 : demande done  //1 : demande approuved  //-1 : demande cancelled
-	public ReceveurDemande() {
-		
+	public ReceveurDemande() {	
 	}
 	public ReceveurDemande(String cIN, String hopital, Date date, String maladie, int quantiteSang,
 			int statut) {

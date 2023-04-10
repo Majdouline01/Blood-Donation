@@ -39,9 +39,7 @@
 	<c:set var="listDemandes" value="${sessionScope.stocks}" />
 	
 	
-	<%
-		ArrayList<Stock> myList = (ArrayList<Stock>) session.getAttribute("stocks");
-	%>
+	<% ArrayList<Stock> myList = (ArrayList<Stock>) session.getAttribute("stocks"); %>
 	<table class="table">
 		<thead>
 			<tr>

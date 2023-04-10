@@ -65,8 +65,6 @@
 		<br> <br> <input style="display:none;" type="text" id="date" name="date" required>
 		<button type="Submit" value="valider">valider</button>
 	</form>
-	
-	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
 	<script>
@@ -91,13 +89,10 @@
           }
         }).datepicker("widget").classList.add("datepicker-buttons");
       });
-      
-      
       //---------------------------------------------
 // Handle form submission
-document.getElementById("myForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
+	document.getElementById("myForm").addEventListener("submit", function(event) {
+ 	 event.preventDefault();
   // Send the form data to the server
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "donate");
@@ -112,7 +107,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
         	showError("Vous ne pouvez pas donner votre sang dans cette Date");
         }
       } else {
-    	  showError("An error occurred while submitting the form");
+    	  showError("Une erreur s'est produite lors de la soumission du formulaire");
       }
     }
   };
@@ -131,7 +126,6 @@ function showNotification(message) {
     document.body.removeChild(notification);
   }, 3000);
 }
-
 function showError(message){
 	var notification = document.createElement("div");
 	  notification.classList.add("alert");
@@ -142,9 +136,7 @@ function showError(message){
 	    document.body.removeChild(notification);
 	  }, 3000);
 }
-      //------------------------------------
-
-    </script>
-
+  //------------------------------------
+</script>
 </body>
 </html>

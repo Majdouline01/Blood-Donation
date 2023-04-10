@@ -29,18 +29,18 @@
     </ul>
 </nav>
 	<form action="changePwd" method="post">
-		Old Password<input name="oldPwd" type="password">
+		<div class="input-area">
+		<input name="oldPwd" type="password" placeholder="Ancien mot de passe">
+		</div>
 		<c:if test="${error == true}">
-   								<span class="text-danger">Invalid password</span>
-   								<%
-    								session.removeAttribute("error");
-								%>
-							</c:if>
+        <span class="text-danger">Mot de passe incorrecte</span>
+         <%session.removeAttribute("error");%>
+		</c:if>
           <div class="button-area">
-		New Password<input name="newPwd" type="password">
-		Confirm Password<input type="password">
-		
+		<input name="newPwd" type="password" placeholder="Nouveau mot de passe">
+		<input type="password" placehoolder="Confirmer mot de passe">
 		<input type="submit">
+		</div>
 	</form>
 </body>
 </html>

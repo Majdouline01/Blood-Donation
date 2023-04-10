@@ -163,33 +163,25 @@ public class StockDao {
         try {
             // Connect to the MySQL database
             Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/projetfinetude",
-                "root",
-                ""
-            );
-            
+                "jdbc:mysql://localhost:3306/projetfinetude","root","");   
             // Create a statement object
-            Statement statement = connection.createStatement();
-            
+            Statement statement = connection.createStatement(); 
             // Iterate over each type
             for (String type : types) {
                 // Execute the query to get the max quantite for the given type and quantity
                 String query = "SELECT quantite FROM stock WHERE type='" + type + "' AND quantite >= " + quantity;
-                ResultSet resultSet = statement.executeQuery(query);
-                
+                ResultSet resultSet = statement.executeQuery(query);         
                 // Extract the max quantite from the result set
                 int currentMaxQuantite = 0;
                 while (resultSet.next()) {
                     currentMaxQuantite = resultSet.getInt(1);
-                }
-                
+                }        
                 // If the current max quantite is greater than the current best max quantite, update the best type and max quantite
                 if (currentMaxQuantite > maxQuantite) {
                     maxQuantite = currentMaxQuantite;
                     bestType = type;
                 }
-            }
-            
+            }    
             // Close the statement and connection objects
             statement.close();
             connection.close();
@@ -206,18 +198,12 @@ public class StockDao {
         try {
             // Connect to the MySQL database
             Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/projetfinetude",
-                "root",
-                ""
-            );
-            
+                "jdbc:mysql://localhost:3306/projetfinetude","root","" );
             // Create a statement object
-            Statement statement = connection.createStatement();
-            
+            Statement statement = connection.createStatement();          
             // Execute the query to retrieve the row with the given id
             String query = "SELECT * FROM receveurdemande WHERE id=" + id;
-            ResultSet resultSet = statement.executeQuery(query);
-            
+            ResultSet resultSet = statement.executeQuery(query);           
             // If a row is found, create a ReceveurDemande object with its values
             if (resultSet.next()) {
                 String cin = resultSet.getString("CIN");
@@ -230,7 +216,6 @@ public class StockDao {
                 receveurDemande = new ReceveurDemande(cin, hopital, date, maladie, quantiteSang, statut);
                 receveurDemande.setId(id);
             }
-            
             // Close the statement and connection objects
             statement.close();
             connection.close();
@@ -243,21 +228,12 @@ public class StockDao {
 	
 	public Boolean AccepterDemandeReceveur(int idDemande) {
 		ReceveurDemande demandeReceveur = getReceveurDemandeById(idDemande);
-		//System.out.print(demandeReceveur);
 		String cinReceveur = getCINReceveur(idDemande);
-		//System.out.print(cinReceveur);
 		String bloodType = getBloodType(cinReceveur);
-		//System.out.print(bloodType);
 		ArrayList<String> compatibleBloodTypes = getCompatibleBloodTypes(bloodType);
-		//System.out.print(compatibleBloodTypes);
 		String bestType = getBiggestStockType(compatibleBloodTypes,demandeReceveur.getQuantiteSang());
-		//System.out.print(bestType);
 		int bloodId = getBloodId(bestType);
-		//System.out.print(bloodId);
 		if(bestType == "") return false;
-		
-		//System.out.print("test Begin ");
-		
 		ArrayList<Demandes> demandes = new ArrayList<Demandes>();
 	    String query = "SELECT * FROM demandes WHERE isValidated = 1 AND type = ? ORDER BY dateDemande LIMIT ?";
 	    

@@ -19,8 +19,7 @@ import Projet.model.Donateur;
 import Projet.model.ReceveurDemande;
 
 public class DonationDao {
-
-	
+	//method cheks if the time between the two donations is 2 mnths
 	public static boolean isSecondDateAtLeast58DaysLater(java.sql.Date dernierDateDon, java.sql.Date selectedDate) {
 	    try {
 	    	if (dernierDateDon == null) return true; //test demandes
@@ -34,25 +33,19 @@ public class DonationDao {
 	        return selectedDate.after(minimumDate) || selectedDate.equals(minimumDate);
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	        System.out.print("test");
 	        return false;
 	    }
 	}
-
 	 // Static method to check if the date is available for donation
     public static boolean isDateAvailable(Date dateDemande, String cin) throws SQLException, ClassNotFoundException {
         boolean isAvailable = false;
-        
-        
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
         PreparedStatement ps = con.prepareStatement("SELECT dernierDateDon FROM donateur WHERE cin = ?");
         ps.setString(1, cin);
-        
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
         	Date dernierDateDon = rs.getDate("dernierDateDon");
-        	
         	if(isSecondDateAtLeast58DaysLater(dernierDateDon,dateDemande)) {
         		if(doesDonateurHasRequest0(cin))
         			return false;
@@ -64,7 +57,7 @@ public class DonationDao {
         con.close();
         return isAvailable;
     }
-    
+    //checks if donator has a request pending
     public static boolean doesDonateurHasRequest0(String cin) throws ClassNotFoundException, SQLException {
     	ResultSet rs = null;
     	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -72,8 +65,7 @@ public class DonationDao {
         PreparedStatement ps = con.prepareStatement("SELECT * FROM demandes WHERE CIN = ? AND isValidated = ?");
         ps.setString(1, cin);
         ps.setInt(2, 0);
-        rs = ps.executeQuery();
-        
+        rs = ps.executeQuery();   
         if(rs.next())
         	return true;
         
@@ -95,7 +87,7 @@ public class DonationDao {
         con.close();
         return false;
     }
-    //list for donator requests for Donatuer
+    //list for donator requests 
     public ArrayList<Demandes> getDemandes(String cin) {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -119,7 +111,7 @@ public class DonationDao {
 		}
 		return list;
     }
-    //list for receiver requests for Receveur
+    //list for receiver requests 
     public ArrayList<ReceveurDemande> getDemandesReceveur(String cin) {
     	Connection conn = null;
 		PreparedStatement stmt = null;
@@ -184,7 +176,7 @@ public class DonationDao {
 		}
 		return list;
     } 
-    //get all todat demandes donateur for ADMIN
+    //get all today demandes donateur for ADMIN
     public ArrayList<Demandes> getAllDemandesDonateur() {
     	Connection conn = null;
 		PreparedStatement stmt = null;

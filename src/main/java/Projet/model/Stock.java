@@ -8,7 +8,6 @@ public class Stock {
 	public Stock() {
 		
 	}
-	
 	public Stock(int id, String type, int quantite) {
 		super();
 		this.id = id;

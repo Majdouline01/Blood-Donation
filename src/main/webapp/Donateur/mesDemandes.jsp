@@ -17,10 +17,8 @@
 	    ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
 		listDemandes = donationDao.getDemandes(donateur.getcIN());
 		session.setAttribute("listDemandes", listDemandes);
-   }
-	   
+   }	   
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,22 +53,15 @@
 		</ul>
 	</nav>
 	</header>
-	
-	
 	<c:set var="donateur" value="${sessionScope.donateur}" />
 	<c:set var="listDemandes" value="${sessionScope.listDemandes}" />
-
-
-
-	<%
-	ArrayList<Demandes> myList = (ArrayList<Demandes>) session.getAttribute("listDemandes");
-	%>
+	<%ArrayList<Demandes> myList = (ArrayList<Demandes>) session.getAttribute("listDemandes");%>
 	<table class="table">
 		<thead>
 			<tr>
 				<th>CIN</th>
 				<th>DATE</th>
-				<th>STATE</th>
+				<th>Etat</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -84,23 +75,21 @@
 				<td><%=myObject.getDateDemande()%></td>
 				<td>
 					<% if (isValidated == 0 ) { %>
-                    <span class="badge bg-warning">etat 0</span>
+                    <span class="badge bg-warning">En attente</span>
                 <% } else if (isValidated == 1 ){ %>
-                    <span class="badge bg-success">etat 1</span>
+                    <span class="badge bg-success">Validée</span>
                 <% } else if (isValidated == 2 ){ %>
-                	<span class="badge bg-success">etat 2</span>
+                	<span class="badge bg-success">Bénéficiée</span>
                 	<% } else if (isValidated == -1 ){ %>
-                	<span class="badge bg-success">etat -1</span>
+                	<span class="badge bg-success">Refusée</span>
                 	<%} %>
 				</td>
-				
 			</tr>
 			<%
 			}
 			%>
 		</tbody>
 	</table>
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>

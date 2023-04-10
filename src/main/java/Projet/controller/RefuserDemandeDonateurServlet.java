@@ -15,16 +15,12 @@ import Projet.DAO.DonationDao;
 import Projet.model.Demandes;
 import Projet.model.ReceveurDemande;
 
-/**
- * Servlet implementation class AccepterDemandeReceveurServlet
- */
+
 @WebServlet("/Admin/refuserDemandeDonateur")
 public class RefuserDemandeDonateurServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+      
+  
     public RefuserDemandeDonateurServlet() {
     }
 

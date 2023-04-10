@@ -6,8 +6,7 @@
 <%@ page import="Projet.DAO.DonationDao" %>
 <%
  if (session.getAttribute("admin") == null) { 
-   response.sendRedirect("signInAdmin.jsp");
-   
+   response.sendRedirect("signInAdmin.jsp");   
    return;
    }else {
 	   DonationDao donationDao = new DonationDao();
@@ -39,7 +38,7 @@
 		<ul>
 			<li><a href="profilAdmin.jsp">Profil</a></li>
 			<li><a href="demandesDonateur.jsp">Demandes de Don</a></li>
-			<li><a href="demandesReceveur.jsp"class="active">Demandes de recu</a></li>
+			<li><a href="demandesReceveur.jsp"class="active">Demandes de reçu</a></li>
 			<li><a href="statistics.jsp">Stats</a></li>
 			<li>
 				<form action="logoutAdmin" method="post">
@@ -50,10 +49,7 @@
 	</nav>
 </header>
 	<c:set var="listDemandes" value="${sessionScope.listDemandes}" />
-
-	<%
-	ArrayList<ReceveurDemande> myList = (ArrayList<ReceveurDemande>) session.getAttribute("listDemandes");
-	%>
+	<%ArrayList<ReceveurDemande> myList = (ArrayList<ReceveurDemande>) session.getAttribute("listDemandes");%>
 	<table class="table">
 		<thead>
 			<tr>
@@ -87,7 +83,6 @@
 
 				</td>
 				<td>
-
 					<form action="accepterDemandeReceveur" method="post">
 						<input type="hidden" name="id" value="<%=myObject.getId()%>" />
 						<button type="submit" class="btn btn-success">Valider</button>

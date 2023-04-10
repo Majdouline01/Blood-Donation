@@ -11,50 +11,33 @@ import javax.servlet.http.HttpSession;
 import Projet.DAO.DonateurDao;
 import Projet.model.Donateur;
 
-/**
- * Servlet implementation class UpadeDonateurInfoServlet
- */
 @WebServlet("/Donateur/updateDonateur")
 public class UpadeDonateurInfoServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-
+	private static final long serialVersionUID = 1L;       
     public UpadeDonateurInfoServlet() {
-
     }
-
-
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String nomDonateur = req.getParameter("nomDonateur");
 		String prenomDonateur = req.getParameter("prenomDonateur");
 		String sexe = req.getParameter("sexe");
 		String numTele = req.getParameter("numTele");
-		String ville = req.getParameter("ville");
-		
+		String ville = req.getParameter("ville");	
 		HttpSession session = req.getSession();
 		Donateur d =  (Donateur) session.getAttribute("donateur");
-		//String dateDeNaissanceStr = req.getParameter("dateDeNaissance");
-		
-		Donateur donateur = new Donateur();
-		
+		//String dateDeNaissanceStr = req.getParameter("dateDeNaissance");	
+		Donateur donateur = new Donateur();		
 		donateur = d;
 		donateur.setcIN(d.getcIN());
 		donateur.setNomDonateur(nomDonateur);
 		donateur.setPrenomDonateur(prenomDonateur);
 		donateur.setSexe(sexe);
 		donateur.setNumTele(numTele);
-		donateur.setVille(ville);
-		System.out.print(false);	
-		DonateurDao donateurDao = new DonateurDao();
-		
+		donateur.setVille(ville);	
+		DonateurDao donateurDao = new DonateurDao();		
 		if(donateurDao.updateDnateur(donateur))
 		{
 			session.setAttribute("donateur", donateur);
 			res.sendRedirect("profilDonateur.jsp");
-		}
-		
-		
+		}		
 	}
-
 }

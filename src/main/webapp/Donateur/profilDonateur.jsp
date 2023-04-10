@@ -7,8 +7,7 @@
 <%@ page import="Projet.DAO.DonationDao" %>
 <%
  if (session.getAttribute("donateur") == null) { 
-   response.sendRedirect("signInDonateur.jsp");
-   
+   response.sendRedirect("signInDonateur.jsp");   
    return;
    }else {
 	   Donateur donateur = new Donateur();
@@ -19,7 +18,6 @@
 		session.setAttribute("listDemandes", listDemandes);
    }
 %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +25,7 @@
     <title>Profil</title>
     <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="../Profil.css">
-   
+    <link rel="stylesheet" type="text/css" href="../Profil.css">  
 </head>
 <body>
  <header>
@@ -49,9 +46,6 @@
 </nav>
 </header>
 <c:set var="donateur" value="${sessionScope.donateur}" />
-
-
-
 <form id="updateForm" action="updateDonateur" method="post">
     <table>
         <tr>
@@ -84,7 +78,7 @@
         </tr>
     </table>
     <button type="button" id="editProfileButton">Modifier</button>
-    <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer les modifications</button>
+    <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer</button>
 </form>
 	<button class="pswd"> <a href="changePWD.jsp">Changer mot de passe</a> </button>
 	<script>
@@ -95,7 +89,6 @@
   
   // Hide update button initially
   updateProfileButton.style.display = "none";
-  
   // Add click event listener to edit profile button
   editProfileButton.addEventListener("click", function() {
     // Toggle input fields and update button

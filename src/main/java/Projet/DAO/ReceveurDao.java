@@ -77,21 +77,18 @@ public class ReceveurDao {
         	  receveur.setEmail(rs.getString("Email"));
         	  receveur.setGroupage(rs.getString("Groupage"));
         	  receveur.setMotDePasse(rs.getString("MotDePasse"));
-        	 
-        	 
               return receveur;
           }
       } catch (SQLException e) {
           e.printStackTrace();
       } 
      return null;
-}
-  
+} 
+  	//update profil receveur
   public boolean updateReceveur(Receveur receveur) {
       Connection conn = null;
 		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
+		ResultSet rs = null;	
 		try {
 		    conn = getConnection();
 		    stmt = conn.prepareStatement("UPDATE receveur SET NomReceveur = ?, PrenomReceveur = ?, sexe = ?, ville = ?, numTele = ? WHERE CIN = ?");
@@ -128,7 +125,7 @@ public class ReceveurDao {
 
 		return true;
   }
-  
+  //get pswd from data base
   public String getPwd(String cin) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -139,9 +136,6 @@ public class ReceveurDao {
 			stmt.setString(1, cin);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				// Donator exists in the database
-				// Create a new Donator object with the data from the result set
-				//System.out.print(rs.getString("motDePasse"));
 				return rs.getString("motDePasse");
 			}
 		} catch (SQLException e) {
@@ -149,20 +143,16 @@ public class ReceveurDao {
 		}
 		return null;
 	}
-  
+//change pswd using old pswd from database
   public boolean changePwd(String cinReceveur, String oldPwd, String newPwd) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		
-		
-		
 		if (oldPwd.equals(getPwd(cinReceveur))) {
 			System.out.print(true);
 			try {
 				conn = getConnection();
-				stmt = conn.prepareStatement(
-						"UPDATE receveur SET motDePasse = ? WHERE CIN = ?");
+				stmt = conn.prepareStatement("UPDATE receveur SET motDePasse = ? WHERE CIN = ?");
 				stmt.setString(1, newPwd);
 				stmt.setString(2, cinReceveur);
 				int rowsUpdated = stmt.executeUpdate();

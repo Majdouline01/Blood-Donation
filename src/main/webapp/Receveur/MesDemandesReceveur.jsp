@@ -10,7 +10,6 @@
 <%
  if (session.getAttribute("receveur") == null) { 
    response.sendRedirect("SignInReceveur.jsp");
-   
    return;
    }else {
 	   ReceveurDao receveurDao= new ReceveurDao();
@@ -20,14 +19,13 @@
 		ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
 		 listDemandes = donationDao.getDemandesReceveur(receveur.getcIN());
 		 session.setAttribute("listDemandes", listDemandes);
-
    }
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Mes demandes</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -60,7 +58,7 @@
 		<thead>
 			<tr>
 				<th>CIN</th>
-				<th>HOSPITAL</th>
+				<th>HOPITAL</th>
 				<th>DATE</th>
 				<th>MALADIE</th>
 				<th>STATUT</th>
@@ -81,7 +79,7 @@
 					<% if (statut == 0) { %>
                     <span class="badge bg-warning">En cours de traitement</span>
                 <% } else { %>
-                    <span class="badge bg-success">Success</span>
+                    <span class="badge bg-success">Validée</span>
                 <% } %>
 				</td>
 				

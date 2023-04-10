@@ -27,22 +27,13 @@ import Projet.model.Donateur;
 public class DonationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 	   //retrieve data from request
 		String dateStr = req.getParameter("date");
-		//System.out.print(dateStr);
-		
 		//convert date from 04/20/2023 to 2023-04-19 FORMAT------
 		String[] str = dateStr.split("/");
 		dateStr = "";
 		dateStr = str[2] + "-" + str[0] + "-" + str[1];
-		//System.out.print(dateStr);
-		//-------------------------------------------------------
-		
-		
-		
-		
 	    Date date = Date.valueOf(dateStr);
 	    HttpSession session = req.getSession();
     	Donateur donateur = (Donateur) session.getAttribute("donateur");
@@ -56,13 +47,11 @@ public class DonationServlet extends HttpServlet {
 	    }
 	    //if the date is available
 	    if (isAvailable) {
-	    	//retrieve the email from the session
 	        StockDao stockDao = new StockDao();
 	        int type = 0;
 	        Connection con = null;
 	        PreparedStatement ps = null;
 	        ResultSet rs = null;
-	        // retrieving the cIN from database
 	        try {
 	            Class.forName("com.mysql.cj.jdbc.Driver");
 	            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetfinetude", "root", "");
@@ -92,27 +81,18 @@ public class DonationServlet extends HttpServlet {
 	        } catch (ClassNotFoundException | SQLException e) {
 	            e.printStackTrace();
 	        }
-
-	        //res.sendRedirect("Success.jsp");
 	        res.setContentType("text/plain");
 		    res.setCharacterEncoding("UTF-8");
 		    res.getWriter().write("success");
-		    
-		    
 		    //to refresh the demandes list
 		    DonationDao donationDao = new DonationDao();
 		    ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
 			listDemandes = donationDao.getDemandes(cin);
-			session.setAttribute("listDemandes", listDemandes);
-			 
-			 
+			session.setAttribute("listDemandes", listDemandes);		 
 	    } else {
 	       
 	        res.sendRedirect("NotAvailable.jsp");
-	    }
-	    
-	    
-	    
+	    }    
 	}
 }
 

@@ -91,7 +91,7 @@
      <button type="button" id="editProfileButton">Modifier</button>
     <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer</button>
    </form> 
-   <button> <a href="changePWDR.jsp">Change Password</a> </button>
+   <button> <a href="changePWDR.jsp">Modifier mot de passe</a> </button>
     <script>
   // Get elements
   const editProfileButton = document.getElementById("editProfileButton");

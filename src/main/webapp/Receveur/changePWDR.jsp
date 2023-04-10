@@ -26,14 +26,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Changer Mot de passe</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
 <c:set var="error" value="${sessionScope.error}" />
 <nav>
 		<ul>
-			<li><a href="ReceiverHomePage.jsp">Profil</a></li>
+			<li><a href="ReceiverHomePage.jsp" class="active">Profil</a></li>
 			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
 			<li><a href="ReceiverRequest.jsp">Faire Demande</a></li>
 			<li>

@@ -7,36 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import Projet.DAO.DonateurDao;
 import Projet.DAO.ReceveurDao;
 import Projet.model.Donateur;
 import Projet.model.Receveur;
-
-/**
- * Servlet implementation class UpadeDonateurInfoServlet
- */
 @WebServlet("/Donateur/changePwd")
 public class ChangeDonateurPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-
     public ChangeDonateurPwdServlet() {
-
     }
-
-
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String oldPwd = req.getParameter("oldPwd");
-		String newPwd = req.getParameter("newPwd");
-		
+		String newPwd = req.getParameter("newPwd");	
 		HttpSession session = req.getSession();
 		Donateur donateur =  (Donateur) session.getAttribute("donateur");
-		
 		DonateurDao donateurDao = new DonateurDao();
 		boolean error = false;
-		
 		if(donateurDao.changePwd(donateur.getcIN(), oldPwd, newPwd))
 		{
 			try {
@@ -57,10 +43,6 @@ public class ChangeDonateurPwdServlet extends HttpServlet {
 			session = req.getSession();
 			 session.setAttribute("error", error);
 				res.sendRedirect("changePWD.jsp");
-		}
-			
-		
-		
+		}		
 	}
-
 }

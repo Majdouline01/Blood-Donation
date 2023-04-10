@@ -20,7 +20,6 @@ public class DonateurDao {
 
 	public DonateurDao() {
 	}
-
 	// Establishes a connection to the database
 	protected Connection getConnection() {
 		Connection connection = null;
@@ -34,7 +33,6 @@ public class DonateurDao {
 		}
 		return connection;
 	}
-
 	// Insert a new donator into the database
 	public void insertDonteur(Donateur donateur) throws SQLException {
 		try (Connection connection = getConnection();
@@ -55,7 +53,6 @@ public class DonateurDao {
 			e.printStackTrace();
 		}
 	}
-
 	// check if the donator is in database
 	public Donateur CheckDonateur(String email, String motDePasse) {
 		Connection conn = null;
@@ -87,9 +84,8 @@ public class DonateurDao {
 			e.printStackTrace();
 		}
 		return null;
-
 	}
-
+	
 	public String getGroupageByCIN(String cin) {
 		String groupage = null;
 		Connection conn = null;
@@ -163,23 +159,16 @@ public class DonateurDao {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
-		
-		
-		
 		if (oldPwd.equals(getPwd(cinDonateur))) {
-			System.out.print(true);
 			try {
 				conn = getConnection();
-				stmt = conn.prepareStatement(
-						"UPDATE donateur SET motDePasse = ? WHERE CIN = ?");
+				stmt = conn.prepareStatement("UPDATE donateur SET motDePasse = ? WHERE CIN = ?");
 				stmt.setString(1, newPwd);
 				stmt.setString(2, cinDonateur);
 				int rowsUpdated = stmt.executeUpdate();
-
 				if (rowsUpdated == 0) {
 					return false;
 				}
-
 			} catch (SQLException e) {
 				e.printStackTrace();
 				return false;
@@ -195,13 +184,10 @@ public class DonateurDao {
 						conn.close();
 					}
 				} catch (SQLException ex) {
-					ex.printStackTrace();
-				}
+					ex.printStackTrace();	}
 			}
-
-			return true;
+	return true;
 		}else return false;
-
 	}
 
 	public String getPwd(String cin) {
@@ -214,9 +200,6 @@ public class DonateurDao {
 			stmt.setString(1, cin);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				// Donator exists in the database
-				// Create a new Donator object with the data from the result set
-				//System.out.print(rs.getString("motDePasse"));
 				return rs.getString("motDePasse");
 			}
 		} catch (SQLException e) {

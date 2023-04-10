@@ -66,7 +66,6 @@
 				<td><%=myObject.getCIN()%></td>
 				<td><%=myObject.getDateDemande()%></td>
 				<td>
-				
 				<form action="accepterDemandeDonateur" method="post">
                         <input type="hidden" name="id" value="<%=myObject.getId()%>"/>
                         <button type="submit" class="btn btn-success">Valider</button>
@@ -74,8 +73,7 @@
                	<form action="refuserDemandeDonateur" method="post">
                         <input type="hidden" name="id" value="<%=myObject.getId()%>"/>
                         <button type="submit" class="btn btn-danger">Refuser</button>
-               	</form>
-				
+               	</form>	
 			</tr>
 			<%
 			}

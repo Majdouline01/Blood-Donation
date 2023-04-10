@@ -32,19 +32,13 @@ public class ReceiverRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// retrieve data from the request
-		
-		String dateStr = req.getParameter("date");
-		
+		// retrieve data from the request	
+		String dateStr = req.getParameter("date");		
 		// convert date from 04/20/2023 to 2023-04-19 FORMAT------
 		String[] str = dateStr.split("/");
 		dateStr = "";
 		dateStr = str[2] + "-" + str[0] + "-" + str[1];
-		 
-		// -------------------------------------------------------
-		
 		 Date date = Date.valueOf(dateStr);
-
 		String hopital = req.getParameter("hopital");
 		String maladie = req.getParameter("maladie");
 		String quantiteSang = req.getParameter("quantiteSang");
@@ -56,15 +50,12 @@ public class ReceiverRequestServlet extends HttpServlet {
                 fileData = part.getInputStream();
                 break;
             }
-        }
-        
-
+        }       
 		// retrieve email from session
 		HttpSession session = req.getSession();
 		String email = (String) session.getAttribute("email");
 		String cIN = "";
 		int statut = 0;
-
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
