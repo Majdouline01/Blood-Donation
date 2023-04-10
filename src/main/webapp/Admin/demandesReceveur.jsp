@@ -3,6 +3,19 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="Projet.model.ReceveurDemande"%>
 <%@ page import="java.util.Base64"%>
+<%@ page import="Projet.DAO.DonationDao" %>
+<%
+ if (session.getAttribute("admin") == null) { 
+   response.sendRedirect("signInAdmin.jsp");
+   
+   return;
+   }else {
+	   DonationDao donationDao = new DonationDao();
+	   ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
+		 listDemandes = donationDao.getAllDemandesReceveur();
+		 session.setAttribute("listDemandes", listDemandes);
+   }
+%>
 <!DOCTYPE html>
 <html>
 <head>

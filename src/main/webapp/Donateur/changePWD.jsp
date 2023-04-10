@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+ if (session.getAttribute("donateur") == null) { 
+   response.sendRedirect("signInDonateur.jsp");
+   return;
+   }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +20,7 @@
     <ul>
         <li><a href="profilDonateur.jsp">Profil</a></li>
         <li><a href="mesDemandes.jsp">Mes Demandes</a></li>
-        <li><a href="Donation.jsp">Faire Demande</a></li>
+        <li><a href="test.jsp">Faire Demande</a></li>
         <li>
             <form action="test" method="post">
                 <a><button type="submit">Se déconnecter</button></a>

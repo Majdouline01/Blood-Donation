@@ -1,7 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page import="Projet.DAO.DonationDao" %>
+<%@ page import="Projet.model.Donateur" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Projet.model.Demandes" %>
+<%
+ if (session.getAttribute("donateur") == null) { 
+   response.sendRedirect("signInDonateur.jsp");
+   return;
+   }else {
+	   DonationDao donationDao = new DonationDao();
+	   Donateur donateur = (Donateur) session.getAttribute("donateur");
+	   ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
+		 listDemandes = donationDao.getDemandes(donateur.getcIN());
+		 session.setAttribute("listDemandes", listDemandes);
+   }
+%>
 <!DOCTYPE html>
 <html>
 <head>

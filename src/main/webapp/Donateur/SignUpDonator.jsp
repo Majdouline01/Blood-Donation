@@ -28,7 +28,7 @@
  <div class="container">
         <div class="form-wrap">
           <h1>Formulaire d'inscription donateur</h1>
-          <form action="s'inscrire" method="post">
+          <form onsubmit="return validateAge();"  action="s'inscrire" method="post">
             <div class="input-area">
               <label for="text"></label>
               <input type="text" name="nomDonateur" id="nomDonateur" placeholder="Votre nom" required>
@@ -93,5 +93,21 @@
         <div class="form-toggle-area">
 					<p>Vous avez déja un <a href="signInDonateur.jsp">connexion</a></p>
 		</div>
+		<script type="text/javascript">
+		function validateAge() {
+			  var dob = new Date(document.getElementById("dateDeNaissance").value);
+			  var today = new Date();
+			  var age = today.getFullYear() - dob.getFullYear();
+			  var m = today.getMonth() - dob.getMonth();
+			  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+			      age--;
+			  }
+			  if (age < 18) {
+			    alert("Vous devez avoir au moins 18 ans pour donner du sang");
+			    return false;
+			  }
+			  return true;
+			}
+		</script>
 </body>
 </html>

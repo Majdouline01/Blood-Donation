@@ -3,7 +3,23 @@
 	
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Projet.model.Demandes" %>
+<%@ page import="Projet.model.Donateur" %>
+<%@ page import="Projet.DAO.DonationDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+ if (session.getAttribute("donateur") == null) { 
+   response.sendRedirect("signInDonateur.jsp");
+   return;
+   }else {
+	   Donateur donateur = new Donateur();
+	 	donateur = (Donateur) session.getAttribute("donateur");
+	    DonationDao donationDao = new DonationDao();
+	    ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
+		listDemandes = donationDao.getDemandes(donateur.getcIN());
+		session.setAttribute("listDemandes", listDemandes);
+   }
+	   
+%>
 
 <!DOCTYPE html>
 <html>
@@ -21,6 +37,7 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
 <header>
         <div class="logo">
           <p>DONATE</p>
@@ -29,7 +46,7 @@
 		<ul>
 			<li><a href="profilDonateur.jsp">Profil</a></li>
 			<li><a href="mesDemandes.jsp" class="active">Mes Demandes</a></li>
-			<li><a href="Donation.jsp">Faire Demande</a></li>
+			<li><a href="test.jsp">Faire Demande</a></li>
 			<li>
 				<form action="test" method="post">
 				<a><i class='bx bx-log-out'></i></a>
@@ -38,7 +55,6 @@
 		</ul>
 	</nav>
 	</header>
-	
 	
 	
 	<c:set var="donateur" value="${sessionScope.donateur}" />

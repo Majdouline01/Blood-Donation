@@ -2,6 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Projet.model.Stock" %>
+<%@ page import="Projet.DAO.StockDao" %>
+<%
+ if (session.getAttribute("admin") == null) { 
+   response.sendRedirect("signInAdmin.jsp");
+   
+   return;
+   }else {
+	   StockDao stockDao = new StockDao();
+		 ArrayList<Stock> stocks = new ArrayList<>();
+		 stocks = stockDao.getStockStats();
+		 session.setAttribute("stocks", stocks);
+   }
+%>
 <!DOCTYPE html>
 <html>
 <head>

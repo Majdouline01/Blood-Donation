@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Projet.model.Demandes" %>
+<%@ page import="Projet.model.Donateur" %>
+<%@ page import="Projet.DAO.DonationDao" %>
+<%
+ if (session.getAttribute("donateur") == null) { 
+   response.sendRedirect("signInDonateur.jsp");
+   
+   return;
+   }else {
+	   Donateur donateur = new Donateur();
+	 	donateur = (Donateur) session.getAttribute("donateur");
+	    DonationDao donationDao = new DonationDao();
+	    ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
+		listDemandes = donationDao.getDemandes(donateur.getcIN());
+		session.setAttribute("listDemandes", listDemandes);
+   }
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -147,8 +165,8 @@ pageEncoding="UTF-8"%>
 
           //create a link for the signup page
           const link = document.createElement("a");
-          link.href = "SignUpDonator.jsp";
-          link.innerText = "Cliquez ici pour aller s'incsrire";
+          link.href = "Donation.jsp";
+          link.innerText = "Cliquez ici pour donner votre sang";
           result.appendChild(link);
 
           return;

@@ -1,12 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Projet.model.Demandes" %>
+<%@ page import="Projet.model.Donateur" %>
+<%@ page import="Projet.DAO.DonationDao" %>
 <%
  if (session.getAttribute("donateur") == null) { 
    response.sendRedirect("signInDonateur.jsp");
    
    return;
+   }else {
+	   Donateur donateur = new Donateur();
+	 	donateur = (Donateur) session.getAttribute("donateur");
+	    DonationDao donationDao = new DonationDao();
+	    ArrayList<Demandes> listDemandes = new ArrayList<Demandes>();
+		listDemandes = donationDao.getDemandes(donateur.getcIN());
+		session.setAttribute("listDemandes", listDemandes);
    }
 %>
 
@@ -29,7 +39,7 @@
     <ul>
         <li><a href="profilDonateur.jsp" class="active">Profil</a></li>
         <li><a href="mesDemandes.jsp">Mes Demandes</a></li>
-        <li><a href="Donation.jsp">Faire Demande</a></li>
+        <li><a href="test.jsp">Faire Demande</a></li>
         <li>
             <form action="test" method="post">
                 <a><i class='bx bx-log-out'></i></a>

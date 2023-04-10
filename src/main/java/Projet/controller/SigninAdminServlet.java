@@ -48,6 +48,7 @@ public class SigninAdminServlet extends HttpServlet {
 					 DonationDao donationDao = new DonationDao();
 					 ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
 					 listDemandes = donationDao.getAllDemandesReceveur();
+					 
 					 ArrayList<Demandes> listDemandesDonateur = new ArrayList<Demandes>();
 					 listDemandesDonateur = donationDao.getAllDemandesDonateur();
 					 StockDao stockDao = new StockDao();

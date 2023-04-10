@@ -2,7 +2,27 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Projet.model.ReceveurDemande" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Projet.model.Receveur" %>
+<%@ page import="Projet.DAO.DonationDao" %>
+<%@ page import="Projet.DAO.ReceveurDao" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+ if (session.getAttribute("receveur") == null) { 
+   response.sendRedirect("SignInReceveur.jsp");
+   
+   return;
+   }else {
+	   ReceveurDao receveurDao= new ReceveurDao();
+		DonationDao donationDao = new DonationDao();
+		Receveur receveur = new Receveur();
+		receveur = (Receveur) session.getAttribute("receveur");
+		ArrayList<ReceveurDemande> listDemandes = new ArrayList<ReceveurDemande>();
+		 listDemandes = donationDao.getDemandesReceveur(receveur.getcIN());
+		 session.setAttribute("listDemandes", listDemandes);
+
+   }
+%>
 <!DOCTYPE html>
 <html>
 <head>
