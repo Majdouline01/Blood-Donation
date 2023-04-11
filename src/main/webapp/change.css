@@ -11,7 +11,7 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(157, 111, 111, 0.7)), url('vecteezy_blood-donation-concept-human-holding-blood-sign-with-heart_12205416_722.jpg');
+    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(112, 150, 174, 0.7));
     background-size: cover;
     background-position: center;
 }

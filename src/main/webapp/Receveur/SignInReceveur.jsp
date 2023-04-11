@@ -23,7 +23,7 @@
     </div>
 	<nav>
 		<ul class="nav-links">
-			<li><a href="../index.jsp">Acceuil</a></li>
+			<li><a href="../index.jsp">Accueil</a></li>
 			<li><a href="../Main/about.jsp">A propos</a></li>
 			<li class="dropdown"><a href="#" class="active">Utilisateurs</a>
 				<div class="dropdown-content">

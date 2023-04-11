@@ -63,9 +63,7 @@
     border-radius: 0.5rem;
   }
   
-  header nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+ 
   
 .datepicker-buttons .ui-state-default {
 	border: none;
@@ -81,6 +79,12 @@
 	color: #999;
 	cursor: default;
 }
+.ui-datepicker {
+    background-color: transparent;
+    border: none;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
 .container {
     position: relative;
     height: 700px;
@@ -156,6 +160,7 @@ form {
     background: rgba(230, 225, 225, 0.1);
     padding: 0 1rem;
     box-sizing: border-box;
+    margin-bottom:10px;
     transition: all 0.3s ease;
     box-shadow: #212020;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

@@ -28,6 +28,12 @@
 	<link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
    <link rel="stylesheet" type="text/css" href="../demande.css">
+   
+   <style type="text/css">
+   .content{
+   	margin-top: 10%;
+   }
+   </style>
 </head>
 <body>
 <header>
@@ -50,7 +56,7 @@
 </header>
 	<c:set var="listDemandes" value="${sessionScope.listDemandes}" />
 	<%ArrayList<ReceveurDemande> myList = (ArrayList<ReceveurDemande>) session.getAttribute("listDemandes");%>
-	<table class="table">
+	<table class="table content">
 		<thead>
 			<tr>
 				<th>ID</th>

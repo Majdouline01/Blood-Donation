@@ -25,7 +25,8 @@
     <title>Profil</title>
     <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="../Profil.css">  
+    <link rel="stylesheet" type="text/css" href="../profilD.css"> 
+
 </head>
 <body>
  <header>

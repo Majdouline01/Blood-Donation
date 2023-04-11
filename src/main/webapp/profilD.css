@@ -1,4 +1,24 @@
-* {
+@charset "UTF-8";
+    .pswd{
+   width: 8rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+    margin-left: 60%;
+  }
+      a{
+  color:white;
+  appearance: none;
+  text-decoration:none;
+  }
+  * {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
@@ -58,7 +78,7 @@
     padding: 0.5rem 2.5rem;
     border-radius: 0.5rem;
   }
-  
+   
  li a#M:hover {
     background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
@@ -67,67 +87,9 @@
     font-size:150%;
     align-items: center;
   }
-    button .logout{
-    width: 4rem;
-    height: 3rem;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 2rem;
-    background: rgb(155, 67, 77);
-    transition: all 0.3s ease;
-    margin-top: 20px;
-    display: block;
-  margin: 0 auto;
-  }
-   header nav ul li a.active {
+  header nav ul li a.active {
      background-color: rgba(255, 255, 255, 0.2);
   }
-  #editProfileButton{
-   width: 8rem;
-    height: 3rem;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 2rem;
-    background: rgb(155, 67, 77);
-    transition: all 0.3s ease;
-    margin-left: 60%;
-  }
-  #editProfileButton{
-    width: 8rem;
-    height: 3rem;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 2rem;
-    background: rgb(155, 67, 77);
-    transition: all 0.3s ease;
-    margin-left: 60%;
-  }
-  
-  button #editProfileButton:hover{
-   width: 5rem;
-    letter-spacing: 1px;
-    background: transparent;
-    border: 2px solid #212020;
-  }
-button #updateProfileButton:hover{
-	 width: 5rem;
-    letter-spacing: 1px;
-    background: transparent;
-    border: 2px solid #212020;
-	
-}
   
   table {
     border-collapse: collapse;
@@ -150,15 +112,7 @@ button #updateProfileButton:hover{
     background-color: #f2f2f2;
     font-weight: bold;
     
-  }
-  
-  
-  
-  i {
-    font-size:150%;
-    align-items: center;
-  }
-  .pswd{
+  } #editProfileButton{
    width: 8rem;
     height: 3rem;
     border: none;
@@ -170,10 +124,49 @@ button #updateProfileButton:hover{
     border-radius: 2rem;
     background: rgb(155, 67, 77);
     transition: all 0.3s ease;
-    margin-left: 60%;
+    margin-left: 30%;
   }
-  a{
-  color:white;
-  appearance: none;
-  text-decoration:none;
+  #updateProfileButton{
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+    margin-left: 30%;
+  }
+  
+    button #editProfileButton:hover{
+   width: 5rem;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 2px solid #212020;
+  }
+button #updateProfileButton:hover{
+	 width: 5rem;
+    letter-spacing: 1px;
+    background: transparent;
+    border: 2px solid #212020;
+	
+}
+ .logout{
+    width: 8rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: block;
+  margin: 0 auto;
   }

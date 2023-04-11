@@ -31,6 +31,18 @@
 	<link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" type="text/css" href="../faire2.css">
+  <style>
+  .ui-datepicker {
+    background-color: transparent;
+    border: none;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  li a#M:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  }
+  </style>
 </head>
 <body>
 <header>
@@ -39,9 +51,9 @@
         </div>
 	<nav>
 		<ul>
-			<li><a href="ReceiverHomePage.jsp">Profil</a></li>
-			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
-			<li><a href="ReceiverRequest.jsp" class="active">Faire Demande</a></li>
+			<li><a href="ReceiverHomePage.jsp" id="M">Profil</a></li>
+			<li><a href="MesDemandesReceveur.jsp" id="M">Mes Demandes</a></li>
+			<li><a href="ReceiverRequest.jsp" id="M" class="active">Faire Demande</a></li>
 			<li>
 				<form action="logout" method="post">
 					<a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
@@ -76,12 +88,12 @@
 			<option value="Autre">Autre</option>
 		</select>
 		</div>
-		<div>
+		<div class="input-area">
 		<label for="quantiteSang">Quantité de sang:</label>
 		<input type="range" id="quantiteSang" name="quantiteSang" min="1" max="10">
 		</div>
 		<div id="sliderValue"></div>
-		<div>
+		<div class="input-area">
 		<label for="ordonnance">Votre ordonnance</label>
 		 <input type="file" id="ordonnance" name="ordonnance">
 		 </div>

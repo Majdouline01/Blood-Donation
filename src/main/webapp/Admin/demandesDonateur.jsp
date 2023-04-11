@@ -52,7 +52,7 @@
 				<th>ID</th>
 				<th>CIN</th>
 				<th>DATE</th>
-				<th>ACTION</th>
+				<th colspan="2">ACTION</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -70,10 +70,14 @@
                         <input type="hidden" name="id" value="<%=myObject.getId()%>"/>
                         <button type="submit" class="btn btn-success">Valider</button>
                	</form>
+               	</td>
+               	<td>
                	<form action="refuserDemandeDonateur" method="post">
                         <input type="hidden" name="id" value="<%=myObject.getId()%>"/>
                         <button type="submit" class="btn btn-danger">Refuser</button>
                	</form>	
+               	
+               	</td>
 			</tr>
 			<%
 			}

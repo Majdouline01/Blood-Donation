@@ -32,7 +32,7 @@
     crossorigin="anonymous">
     <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" type="text/css" href="../Profil.css">
+    <link rel="stylesheet" type="text/css" href="../profilR.css">
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
@@ -50,12 +50,12 @@
         </div>
 	<nav>
 		<ul>
-			<li><a href="ReceiverHomePage.jsp" class="active">Profil</a></li>
-			<li><a href="MesDemandesReceveur.jsp">Mes Demandes</a></li>
-			<li><a href="ReceiverRequest.jsp">Faire Demande</a></li>
+			<li><a href="ReceiverHomePage.jsp" class="active" id="M">Profil</a></li>
+			<li><a href="MesDemandesReceveur.jsp" id="M">Mes Demandes</a></li>
+			<li><a href="ReceiverRequest.jsp" id="M">Faire Demande</a></li>
 			<li>
 				<form action="logout" method="post">
-					<a><button type="submit"><i class='bx bx-log-out'></i></button></a>
+					<a><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>
@@ -91,7 +91,7 @@
      <button type="button" id="editProfileButton">Modifier</button>
     <button type="submit" id="updateProfileButton" style="display: none;">Enregistrer</button>
    </form> 
-   <button> <a href="changePWDR.jsp">Modifier mot de passe</a> </button>
+   <button class="pswd"> <a  href="changePWDR.jsp">Modifier mot de passe</a> </button>
     <script>
   // Get elements
   const editProfileButton = document.getElementById("editProfileButton");

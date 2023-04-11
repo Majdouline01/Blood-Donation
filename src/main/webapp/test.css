@@ -11,7 +11,7 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(157, 111, 111, 0.7)), url('vecteezy_blood-donation-concept-human-holding-blood-sign-with-heart_12205416_722.jpg');
+    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(112, 150, 174, 0.7));
     background-size: cover;
     background-position: center;
 }
@@ -58,7 +58,7 @@ header {
     border-radius: 0.5rem;
   }
   
-  header nav ul li a:hover {
+   li a#M:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }
  
@@ -80,37 +80,3 @@ header {
   }
  
 
-#question-container {
-  margin: auto;
-  text-align: center;
-}
-
-#options-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom:10px;
-}
-
-#return-button,
-#quit {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-#quit button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#error-container {
-  text-align: center;
-  margin-top: 20px;
-}
-  

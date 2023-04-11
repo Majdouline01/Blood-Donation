@@ -40,22 +40,22 @@
 	</nav>
 	</header>
 <c:set var="admin" value="${sessionScope.admin}" />                                    
-	       Welcome, ${admin.prenomAdmin}!
+	       Bienvenue, ${admin.prenomAdmin}!
 	       
 	       <div class="container">
-        <h1>Person Information</h1>
+        <h1>Informations de l'admin</h1>
         <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <th>Name</th>
+                    <th>Nom</th>
                     <td>${admin.nomAdmin}</td>
                 </tr>
                 <tr>
-                    <th>Last Name</th>
+                    <th>Prénom</th>
                     <td>${admin.prenomAdmin}</td>
                 </tr>
                 <tr>
-                    <th>Phone Number</th>
+                    <th>Numéro de téléphone</th>
                     <td>${admin.numTele}</td>
                 </tr>
             </tbody>

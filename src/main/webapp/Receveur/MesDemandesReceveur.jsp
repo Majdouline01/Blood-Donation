@@ -30,6 +30,13 @@
 <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
  <link rel="stylesheet" type="text/css" href="../demande.css">
+ <style >
+  .table{
+  width :30%;
+  padding: 20px;
+  height:80%
+  }
+ </style>
 </head>
 <body>
 <header>

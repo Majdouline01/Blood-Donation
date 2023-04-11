@@ -26,7 +26,131 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet"
 	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" type="text/css" href="../test.css">
-    
+    <style>
+ body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}
+
+#question-container {
+  margin-top: 180px;
+  background-color: transparent;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#question-text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+ 
+}
+
+#options-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, rgba(90, 61, 61, 0.5), rgba(112, 150, 174, 0.7));
+    background-size: cover;
+    background-position: center;
+}
+
+
+.option {
+  background-color: #f7f7f7;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.option:hover {
+  background-color: #eee;
+}
+
+#error-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#error-message {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#return-button {
+  background-color: #152c46;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color:white;
+}
+
+#return-button:hover {
+  background-color: #aaa;
+}
+
+#quit {
+  margin-top: 20px;
+}
+
+#quit button {
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: black;
+}
+
+#quit button:hover {
+  background-color: #aaa;
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+}
+   button .logout{
+    width: 4rem;
+    height: 3rem;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2rem;
+    background: rgb(155, 67, 77);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: block;
+  margin: 0 auto;
+  }
+
+
+    </style>
   </head>
 
   <body>
@@ -36,12 +160,12 @@ pageEncoding="UTF-8"%>
         </div>
   <nav>
 		<ul>
-			<li><a href="index.jsp">Accueil</a></li>
-			<li><a href="Main/about.jsp">A propos</a></li>
-			<li><a href="test.jsp" id="M" class="active">Faire Demande</a></li>
+			<li><a href="index.jsp" id="M">Accueil</a></li>
+			<li><a href="Main/about.jsp" id="M">A propos</a></li>
+			<li><a href="test.jsp" id="M" class="active" >Faire Demande</a></li>
 			<li>
             <form action="test" method="post">
-                <a class="log-out" id="N"><button class="logout" type="submit" ><i class='bx bx-log-out'></i></button></a>
+                <a class="log-out" id="N"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
             </form>
         </li>
 		

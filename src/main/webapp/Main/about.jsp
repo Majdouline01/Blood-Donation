@@ -39,19 +39,19 @@
       <h2>Notre histoire</h2>
       <div class="img-container">
         <p>Nous avons commencé notre parcours en tant que petite organisation locale de don de sang en 2015. Au fil des ans, notre organisation a grandi et nous avons commencé à utiliser la technologie pour connecter les donneurs de sang avec les patients qui en ont besoin. Aujourd'hui, nous sommes fiers d'être une application de don de sang en ligne, dédiée à aider les personnes dans le besoin de sang.</p>
-        <img src="https://dummyimage.com/600x400/cccccc/ffffff" alt="Image de l'historique">
+        <img src="istockphoto-627290560-612x612.jpg" alt="Image de l'historique">
       </div>
       
       <h2>Notre mission et nos valeurs</h2>
       <div class="img-container">
-        <img src="https://dummyimage.com/600x400/cccccc/ffffff" alt="Image de la mission et des valeurs">
+        <img src="istockphoto-1306247421-170667a.jpg" alt="Image de la mission et des valeurs">
         <p>Notre mission est de sauver des vies en promouvant le don de sang et en facilitant la collecte de sang auprès des donneurs. Nous croyons en l'importance de la collaboration et de la communication transparente pour atteindre cet objectif. Nos valeurs comprennent l'empathie, l'intégrité et l'engagement envers l'excellence.</p>
       </div>
       
       <h2>Nos partenaires et collaborations</h2>
       <div class="img-container">
         <p>Nous travaillons en étroite collaboration avec des organisations de santé, des hôpitaux et des cliniques pour nous assurer que les patients ont accès à suffisamment de sang en cas de besoin. Nous sommes également fiers de travailler avec des organisations communautaires pour organiser des campagnes de don de sang et sensibiliser le public à l'importance du don de sang.</p>
-        <img src="https://dummyimage.com/600x400/cccccc/ffffff" alt="Image des partenaires et des collaborations">
+        <img src="Blood donation 900x600.jpg" alt="Image des partenaires et des collaborations">
       </div>
       </div>
 </div>

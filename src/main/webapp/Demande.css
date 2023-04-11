@@ -87,11 +87,7 @@
    header nav ul li a.active {
      background-color: rgba(255, 255, 255, 0.2);
   }
-  .table{
-  width :30%;
-  padding: 10px;
-  height:50%
-  }
+ 
   tr{
   padding:10px
   }
