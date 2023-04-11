@@ -27,13 +27,13 @@
         </div>
 <nav>
 		<ul>
-			<li><a href="profilAdmin.jsp" class="active">Profil</a></li>
-			<li><a href="demandesDonateur.jsp">Demandes de Don</a></li>
-			<li><a href="demandesReceveur.jsp">Demandes de recu</a></li>
-			<li><a href="statistics.jsp">Stats</a></li>
+			<li><a href="profilAdmin.jsp" class="active" id="M">Profil</a></li>
+			<li><a href="demandesDonateur.jsp" id="M">Demandes de Don</a></li>
+			<li><a href="demandesReceveur.jsp" id="M">Demandes de recu</a></li>
+			<li><a href="statistics.jsp" id="M">Stats</a></li>
 			<li>
 				<form action="logoutAdmin" method="post">
-					<a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>>
+					<a class="log-out" id="N"><button class="logout" type="submit" ><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>

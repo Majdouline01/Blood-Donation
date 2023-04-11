@@ -23,24 +23,31 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>Test de pré-donation</title>
+    <link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" type="text/css" href="../test.css">
     
   </head>
 
   <body>
+  <header>
+        <div class="logo">
+          <p>DONATE</p>
+        </div>
   <nav>
 		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="Main/about.jsp">About</a></li>
-			<li class="dropdown"><a href="#">Users</a>
-				<div class="dropdown-content">
-					<a href="Donateur/signInDonateur.jsp">Donateur</a> 
-					<a href="Receveur/SignInReceveur.jsp">Receveur</a> 
-					<a href="Admin/signInAdmin.jsp">Admin</a>
-				</div></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="index.jsp">Accueil</a></li>
+			<li><a href="Main/about.jsp">A propos</a></li>
+			<li><a href="test.jsp" id="M" class="active">Faire Demande</a></li>
+			<li>
+            <form action="test" method="post">
+                <a class="log-out" id="N"><button class="logout" type="submit" ><i class='bx bx-log-out'></i></button></a>
+            </form>
+        </li>
+		
 		</ul>
 	</nav>
+	</header>
     <div id="question-container">
       <div id="question-text"></div>
       <div id="options-container"></div>

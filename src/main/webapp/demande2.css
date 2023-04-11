@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
     margin: 0;
     padding: 0;
@@ -86,64 +87,5 @@
    header nav ul li a.active {
      background-color: rgba(255, 255, 255, 0.2);
   }
-  button #editProfileButton:hover{
-   width: 5rem;
-    letter-spacing: 1px;
-    background: transparent;
-    border: 2px solid #212020;
-  }
-button #updateProfileButton:hover{
-	 width: 5rem;
-    letter-spacing: 1px;
-    background: transparent;
-    border: 2px solid #212020;
-	
-}
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  th,
-  td {
-    text-align: left;
-    padding: 16px 10px;
-    border-bottom: 1px solid #ddd;
-    
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-    
-  }
-  
-  
-  
-  i {
-    font-size:150%;
-    align-items: center;
-  }
-  .pswd{
-   width: 8rem;
-    height: 3rem;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 2rem;
-    background: rgb(155, 67, 77);
-    transition: all 0.3s ease;
-    margin-left: 40%;
-  }
-  a{
-  color:white;
-  appearance: none;
+  #Table{
   }

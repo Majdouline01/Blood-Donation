@@ -23,7 +23,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-   <link rel="stylesheet" type="text/css" href="../demande.css">
+   <link rel="stylesheet" type="text/css" href="../demande2.css">
 </head>
 <body>
 <header>
@@ -32,10 +32,10 @@
         </div>
 <nav>
 		<ul>
-			<li><a href="profilAdmin.jsp">Profil</a></li>
-			<li><a href="demandesDonateur.jsp" class="active">Demandes de Don</a></li>
-			<li><a href="demandesReceveur.jsp">Demandes de recu</a></li>
-			<li><a href="statistics.jsp">Stats</a></li>
+			<li><a href="profilAdmin.jsp" id="M">Profil</a></li>
+			<li><a href="demandesDonateur.jsp" class="active" id="M">Demandes de Don</a></li>
+			<li><a href="demandesReceveur.jsp" id="M">Demandes de recu</a></li>
+			<li><a href="statistics.jsp" id="M">Stats</a></li>
 			<li>
 				<form action="logoutAdmin" method="post">
 					<a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
@@ -46,7 +46,7 @@
 </header>
 	<c:set var="listDemandes" value="${sessionScope.listDemandesDonateur}" />
 	<%ArrayList<Demandes> myList = (ArrayList<Demandes>) session.getAttribute("listDemandesDonateur");%>
-	<table class="table">
+	<table class="table" id="Table">
 		<thead>
 			<tr>
 				<th>ID</th>

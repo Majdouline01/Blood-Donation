@@ -22,30 +22,29 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-.chart-container {
-  display: flex;
-  justify-content: center;
-  margin: 50px;
-  border: 2px solid black;
-  padding: 20px;
-}
-</style>
-</head>
+ <link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+<link rel="stylesheet" type="text/css" href="../Stats.css">
+
 <body>
+<header>
+<div class="logo">
+          <p>DONATE</p>
+        </div>
 	<nav>
 		<ul>
-			<li><a href="profilAdmin.jsp">Profil</a></li>
-			<li><a href="demandesDonateur.jsp">Demandes de Don</a></li>
-			<li><a href="demandesReceveur.jsp">Demandes de recu</a></li>
-			<li><a href="statistics.jsp">Stats</a></li>
+			<li><a href="profilAdmin.jsp" id="M">Profil</a></li>
+			<li><a href="demandesDonateur.jsp" id="M">Demandes de Don</a></li>
+			<li><a href="demandesReceveur.jsp" id="M">Demandes de recu</a></li>
+			<li><a href="statistics.jsp" class="active" id="M">Stats</a></li>
 			<li>
 				<form action="logoutAdmin" method="post">
-					<a><button type="submit">Se déconnecter</button></a>
+					<a class="log-out" id="N"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
 				</form>
 			</li>
 		</ul>
 	</nav>
+	</header>
 	<c:set var="listDemandes" value="${sessionScope.stocks}" />
 	
 	

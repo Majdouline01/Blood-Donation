@@ -34,12 +34,12 @@
         </div>
 <nav>
     <ul>
-        <li><a href="profilDonateur.jsp" class="active">Profil</a></li>
-        <li><a href="mesDemandes.jsp">Mes Demandes</a></li>
-        <li><a href="test.jsp">Faire Demande</a></li>
+        <li><a href="profilDonateur.jsp" class="active"id="M">Profil</a></li>
+        <li><a href="mesDemandes.jsp" id="M">Mes Demandes</a></li>
+        <li><a href="test.jsp" id="M">Faire Demande</a></li>
         <li>
             <form action="test" method="post">
-                <a><i class='bx bx-log-out'></i></a>
+                <a class="log-out"><button class="logout" type="submit"><i class='bx bx-log-out'></i></button></a>
             </form>
         </li>
     </ul>
