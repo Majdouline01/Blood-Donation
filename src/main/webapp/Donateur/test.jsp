@@ -59,7 +59,7 @@ pageEncoding="UTF-8"%>
 
   <script>
   function quitFunction(){
-	  window.location.replace("http://localhost:8080/ProjetFinEtude");
+	  window.location.replace("http://localhost:8080/ProjetFinEtude/Donateur/mesDemandes.jsp");
   }
   
     const questions = [
