@@ -80,6 +80,7 @@ public class StockDao {
 	
 	//function you give it the cin of donateur and it update the quantity of his blood type
 	public boolean incrementQuantite(String cin) {
+		//System.out.print("update");
 	    DonateurDao donateurDao = new DonateurDao();
 	    String bloodType = donateurDao.getGroupageByCIN(cin);
 	    int typeId = getBloodId(bloodType);

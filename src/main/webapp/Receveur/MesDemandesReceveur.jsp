@@ -85,15 +85,15 @@
 				<td>
 					<% if (statut == 0) { %>
                     <span class="badge bg-warning">En cours de traitement</span>
-                <% } else { %>
+                <% } else if (statut == 1) { %>
                     <span class="badge bg-success">Validée</span>
-                <% } %>
+                <% }else {%>
+                	<span class="badge bg-danger">Refusée</span>
+                	<% }%>
 				</td>
 				
 			</tr>
-			<%
-			}
-			%>
+<%} %>
 		</tbody>
 	</table>
 	

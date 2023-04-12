@@ -70,7 +70,7 @@
 	<script>
       document.addEventListener("DOMContentLoaded", function() {
         var minDate = new Date();
-        minDate.setDate(minDate.getDate()); // Set minimum date to tomorrow
+        minDate.setDate(minDate.getDate() -1); // Set minimum date to tomorrow
         var maxDate = new Date();
         maxDate.setMonth(maxDate.getMonth() + 1); // Set maximum date to within a month
         var datepicker = document.querySelector("#datepicker");

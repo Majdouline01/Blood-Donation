@@ -167,7 +167,6 @@ public class AdminDao {
             stmt.setDate(1,demande.getDateDemande());
             stmt.setString(2, cin);
             int numRowsUpdated = stmt.executeUpdate();
-            stockDao.incrementQuantite(getCINByIdDemande(idDemande));
             return numRowsUpdated == 1;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -186,6 +185,7 @@ public class AdminDao {
 	
 	
 	public boolean accepterDemandeDonateur(int idDemande) {
+		//System.out.print("accepterDemandeDonateur");
     	Connection conn = null;
         PreparedStatement stmt = null;
         Demandes demande = new Demandes();

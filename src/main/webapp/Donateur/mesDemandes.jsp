@@ -81,7 +81,7 @@
                 <% } else if (isValidated == 2 ){ %>
                 	<span class="badge bg-success">Bénéficiée</span>
                 	<% } else if (isValidated == -1 ){ %>
-                	<span class="badge bg-success">Refusée</span>
+                	<span class="badge bg-danger">Refusée</span>
                 	<%} %>
 				</td>
 			</tr>
